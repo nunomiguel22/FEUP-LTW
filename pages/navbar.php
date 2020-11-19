@@ -5,6 +5,7 @@
    <link rel="stylesheet" type="text/css" href="/css/style.css">
    <meta charset="utf-8">
    <meta name="viewport" cotent="width=device-width">
+   <link rel="icon" href="/images/favicon.jpg">
 </head>
 
 <body>
