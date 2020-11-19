@@ -2,14 +2,14 @@
 
 <head>
    <title>Adoption GO</title>
-   <link rel="stylesheet" type="text/css" href="../css/style.css">
+   <link rel="stylesheet" type="text/css" href="/css/style.css">
    <meta charset="utf-8">
    <meta name="viewport" cotent="width=device-width">
 </head>
 
 <body>
    <div class="topbar">
-      <img src="images/logo.jpg" alt="toplogo" class="toplogo">
+      <img src="/images/logo.jpg" alt="toplogo" class="toplogo">
       <div class="topbar-right">
          <?php
             session_start();
@@ -19,7 +19,7 @@
                      <button class="dropbtn">'.$_SESSION['username'].'</button>
                      <div class="dropdown-content">
                         <a href="#">Profile</a>
-                        <a href="../actions/action_logout.php">Logout</a>
+                        <a href="/actions/action_logout.php">Logout</a>
                      </div>
                   </div>';
                 echo $loginDropdown;
@@ -38,12 +38,12 @@
    
    <div id="id01" class="modalLogin">
 
-      <form class="modalLogin-content" action="../actions/action_login.php" method="post">
+      <form class="modalLogin-content" action="/actions/action_login.php" method="post">
          <div class="imgcontainer">
             <h3>Login</h3>
             <span onclick="document.getElementById('id01').style.display='none'" class="close"
                title="Close login form">&times;</span>
-            <img src="images/logo.jpg" alt="logo" class="logo">
+            <img src="/images/logo.jpg" alt="logo" class="logo">
          </div>
 
 

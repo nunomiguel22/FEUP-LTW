@@ -15,7 +15,7 @@ $loginCorrect = verifyUserLogin($username, $password);
 if ($loginCorrect != -1) {
     $_SESSION["username"] = $username;
     $_SESSION['logged_in'] = true;
-    header("location: ../index.php");
+    header("location: /index.php");
 } else {
     $_SESSION['logged_in'] = false;
     echo('<script>alert("Wrong user or password")</script>

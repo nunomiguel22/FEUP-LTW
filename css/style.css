@@ -7,7 +7,7 @@ body {
 /* Showcase */
 #showcase {
     min-height: 190px;
-    background: url('../images/dogsanimated.jpg') no-repeat  640px -80px ;
+    background: url('/images/dogsanimated.jpg') no-repeat  640px -80px ;
     
 }
 
@@ -37,7 +37,7 @@ body {
 
 #dog1 {
     min-height: 80px;
-    background: url('../images/a1.jpg') no-repeat 0 0 ;
+    background: url('/images/a1.jpg') no-repeat 0 0 ;
     background-size: 150px 100px;
     padding-bottom: 50px;
     font-family: 'Lucida Sans Regular';
@@ -48,7 +48,7 @@ body {
 
 #cat1 {
     min-height: 80px;
-    background: url('../images/c1.jpg') no-repeat 0 0 ;
+    background: url('/images/c1.jpg') no-repeat 0 0 ;
     background-size: 150px 100px;
     padding-bottom: 50px;
     font-family: 'Lucida Sans Regular';
