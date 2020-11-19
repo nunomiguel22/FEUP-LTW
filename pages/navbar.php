@@ -43,7 +43,7 @@
             <h3>Login</h3>
             <span onclick="document.getElementById('id01').style.display='none'" class="close"
                title="Close login form">&times;</span>
-            <img src="../images/logo.jpg" alt="logo" class="logo">
+            <img src="images/logo.jpg" alt="logo" class="logo">
          </div>
 
 
