@@ -9,7 +9,7 @@
 
 <body>
    <div class="topbar">
-      <img src="../images/logo.jpg" alt="toplogo" class="toplogo">
+      <img src="images/logo.jpg" alt="toplogo" class="toplogo">
       <div class="topbar-right">
          <?php
             session_start();
