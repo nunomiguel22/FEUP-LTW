@@ -37,7 +37,7 @@
       </div>
    </div>
    
-   <div id="id01" class="modalLogin">
+   <div id="id01" class="modal">
 
       <form class="modalLogin-content" action="/actions/action_login.php" method="post">
          <div class="imgcontainer">
@@ -58,7 +58,7 @@
       </form>
    </div>
 
-<div id="id02" class="modalSignup">
+<div id="id02" class="modal">
 
    <form class="modalSignup-content" action="/actions/action_signup.php" method="post">
       <div class="imgcontainer">
