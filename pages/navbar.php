@@ -49,7 +49,7 @@
 
 
          <div class="container">
-            <input type="text" placeholder="Username" name="username" required>
+            <input type="text" placeholder="Username" name="username" required autofocus>
             <input type="password" placeholder="Password" name="password" required>
             <br>
             <button type="submit">Login</button>
@@ -57,6 +57,29 @@
          </div>
       </form>
    </div>
+
+<div id="id02" class="modalSignup">
+
+   <form class="modalSignup-content" action="/actions/action_signup.php" method="post">
+      <div class="imgcontainer">
+         <h3>Login</h3>
+         <span onclick="document.getElementById('id02').style.display='none'" class="close"
+            title="Close login form">&times;</span>
+         <img src="/images/logo.jpg" alt="logo" class="logo">
+      </div>
+
+
+      <div class="container">
+         <input type="text" placeholder="Username" name="username" required autofocus>
+         <input type="password" placeholder="Password" name="password" required>
+         <input type="email" placeholder="E-mail" name="email" required>
+         <input type="text" placeholder="Name" name="name">
+         <br>
+         <button type="submit">Signup</button>
+
+      </div>
+   </form>
+</div>
 
    
 </body>
