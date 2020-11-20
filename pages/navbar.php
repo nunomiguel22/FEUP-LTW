@@ -62,7 +62,7 @@
 
    <form class="modalSignup-content" action="/actions/action_signup.php" method="post">
       <div class="imgcontainer">
-         <h3>Login</h3>
+         <h3>Create new account</h3>
          <span onclick="document.getElementById('id02').style.display='none'" class="close"
             title="Close login form">&times;</span>
          <img src="/images/logo.jpg" alt="logo" class="logo">

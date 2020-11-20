@@ -52,6 +52,22 @@ function getUserID($username)
         if ($row = $stmt->fetch()) {
             return $row['id'];
         }
+        else return -1;
+    } catch (PDOException $e) {
+        return -1;
+    }
+}
+
+function getUserIDbyEmail($email)
+{
+    global $dbh;
+    try {
+        $stmt = $dbh->prepare('SELECT id FROM User WHERE email = ?');
+        $stmt->execute(array($email));
+        if ($row = $stmt->fetch()) {
+            return $row['id'];
+        }
+        return -1;
     } catch (PDOException $e) {
         return -1;
     }
