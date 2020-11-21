@@ -126,10 +126,8 @@ background-color: #fefefe;
 border-radius: 10px;
 margin: 5% auto 15% auto;
 border: 1px solid#3d7bff;
-width: 20%;
-min-width: 300px;
-min-height: 300px;
-height:35%;
+width: 300px;
+height: 300px;
 }
   /* Content/Box */
 .modalSignup-content {
@@ -137,10 +135,8 @@ height:35%;
   border-radius: 10px;
   margin: 5% auto 15% auto;
   border: 1px solid #3d7bff;
-  width: 20%;
-  min-width: 300px;
-  min-height: 430px;
-  height:50%;
+  width: 300px;
+  height:430px;
 }
 
 /* The Close Button (x) */
@@ -247,4 +243,14 @@ font-size: 19;
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
   display: block;
+}
+
+.smallerror{
+  color:red;
+  font-size: 11;
+}
+
+.smallallowed{
+  color: green;
+  font-size: 11;
 }
