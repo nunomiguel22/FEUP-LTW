@@ -6,6 +6,8 @@
    <meta charset="utf-8">
    <meta name="viewport" cotent="width=device-width">
    <link rel="icon" href="/images/favicon.jpg">
+   <script src="../js/jquery-3.5.1.js"></script>
+   <script type="text/javascript" src="../js/signup_dialog.js"></script>
 </head>
 
 <body>
@@ -26,9 +28,9 @@
                 echo $loginDropdown;
             } else {
                 $loginButton = '<button onclick="document.getElementById(\'id01\').style.display=\'block\'" 
-                                 style="width:auto;">Login</button> ';
+                                 style="width:auto;">Entrar</button> ';
                 $signupButton = '<button onclick="document.getElementById(\'id02\').style.display=\'block\'" 
-                                 style="width:auto;">Sign up</button> ';
+                                 style="width:auto;">Registrar</button> ';
                 echo $loginButton;
                 echo $signupButton;
             }
@@ -37,11 +39,11 @@
       </div>
    </div>
    
-   <div id="id01" class="modalLogin">
+   <div id="id01" class="modal">
 
-      <form class="modalLogin-content" action="/actions/action_login.php" method="post">
+      <form class="modalLogin-content" id="login_form" action="/actions/action_login.php" method="post">
          <div class="imgcontainer">
-            <h3>Login</h3>
+            <h3>Entrar</h3>
             <span onclick="document.getElementById('id01').style.display='none'" class="close"
                title="Close login form">&times;</span>
             <img src="/images/logo.jpg" alt="logo" class="logo">
@@ -52,17 +54,17 @@
             <input type="text" placeholder="Username" name="username" required autofocus>
             <input type="password" placeholder="Password" name="password" required>
             <br>
-            <button type="submit">Login</button>
+            <button type="submit">Entrar</button>
 
          </div>
       </form>
    </div>
 
-<div id="id02" class="modalSignup">
+<div id="id02" class="modal">
 
-   <form class="modalSignup-content" action="/actions/action_signup.php" method="post">
+   <form class="modalSignup-content" action="/actions/action_signup.php" onsubmit="return canUserSignup();" method="post">
       <div class="imgcontainer">
-         <h3>Create new account</h3>
+         <h3>Criar nova conta</h3>
          <span onclick="document.getElementById('id02').style.display='none'" class="close"
             title="Close login form">&times;</span>
          <img src="/images/logo.jpg" alt="logo" class="logo">
@@ -70,18 +72,20 @@
 
 
       <div class="container">
-         <input type="text" placeholder="Username" name="username" required autofocus>
-         <input type="password" placeholder="Password" name="password" required>
-         <input type="email" placeholder="E-mail" name="email" required>
-         <input type="text" placeholder="Name" name="name">
+         <input type="text" id="sp_username" placeholder="Utilizador" name="username" required autofocus>
+         <div id="sp_username_r"> </div>
+         <input type="password" id="sp_password" placeholder="Palavra-passe" name="password" required>
+         <div id="sp_password_r"> </div>
+         <input type="email" id="sp_email" placeholder="E-mail" name="email" required>
+         <div id="sp_email_r"> </div>
+         <input type="text" placeholder="Nome" name="name">
          <br>
-         <button type="submit">Signup</button>
+         <button type="submit">Registrar</button>
 
       </div>
    </form>
 </div>
 
-   
 </body>
 
 </html>

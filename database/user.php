@@ -1,4 +1,5 @@
 <?php
+include_once('../includes/init.php');
 
 function verifyUserLogin($username, $password)
 {
@@ -51,8 +52,9 @@ function getUserID($username)
         $stmt->execute(array($username));
         if ($row = $stmt->fetch()) {
             return $row['id'];
+        } else {
+            return -1;
         }
-        else return -1;
     } catch (PDOException $e) {
         return -1;
     }
