@@ -74,7 +74,7 @@
       <div class="container">
          <input type="text" id="sp_username" placeholder="Utilizador" name="username" required autofocus>
          <div id="sp_username_r"> </div>
-         <input type="password" id="sp_password" placeholder="Palavra-passe" name="password" required>
+         <input type="password" id="sp_password" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{5,10}$" placeholder="Palavra-passe (5 a 10 Caracteres)" name="password" required>
          <div id="sp_password_r"> </div>
          <input type="email" id="sp_email" placeholder="E-mail" name="email" required>
          <div id="sp_email_r"> </div>
