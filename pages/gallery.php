@@ -8,22 +8,14 @@
 </head>
 
 <body>
-    <br><br>
-    <section id="showcase2">
-        <div class="container">
-            <h1>Pets are Family</h1>
-            <p> It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and
-                more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-            </p>
-        </div>
-    </section>
-
+    <div class="Banner">
+        <img src="/images/banner-ex.jpg" alt="Adoption GO" class="galleryBanner">
+        <div class="BannerTitle">Planeia adoptar um animal de estimação?</div>
+    </div>
     <section id="Animais">
         <div class="container">
-            <h1>Animais de estimação</h1>
-            <p>Prefere ladrar ou miar?</p>
+            <p class="Title1">Animais de estimação disponíveis para adopção</p>
             <div id="caes">
-                <h2 id="Adoptimg">Cães</h2>
                 <section class="container">
                     <ul id="Ultimos">
                         <div class="containerimg">
@@ -49,7 +41,6 @@
                 </section>
             </div>
             <div id="gatos">
-                <h2 id="Adoptimg">Gatos</h2>
                 <section class="container">
                     <ul id="Ultimos">
                         <div class="containerimg">
@@ -68,8 +59,6 @@
                             <li id="cat1">
                                 <span>name</span>
                             </li>
-
-
                         </div>
                     </ul>
                 </section>

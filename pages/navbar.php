@@ -11,9 +11,9 @@
 </head>
 
 <body>
-   <div class="topbar">
+   <div class="NavBar">
       <img src="/images/logo.jpg" alt="toplogo" class="toplogo">
-      <div class="topbar-right">
+      <div class="NavBar-right">
          <?php
             session_start();
             if (isset($_SESSION['username']) && $_SESSION['logged_in'] == 'true') {
@@ -21,8 +21,9 @@
                   '<div class="dropdown">
                      <button class="dropbtn">'.$_SESSION['username'].'</button>
                      <div class="dropdown-content">
-                        <a href="#">Profile</a>
-                        <a href="/actions/action_logout.php">Logout</a>
+                        <a href="#">Perfil</a>
+                        <a href="/pages/newpet.php">Registar Animal</a>
+                        <a href="/actions/action_logout.php">Sair</a>
                      </div>
                   </div>';
                 echo $loginDropdown;
@@ -43,7 +44,7 @@
 
       <form class="modalLogin-content" id="login_form" action="/actions/action_login.php" method="post">
          <div class="imgcontainer">
-            <h3>Entrar</h3>
+            <span class="Title2">Entrar na conta</span>
             <span onclick="document.getElementById('id01').style.display='none'" class="close"
                title="Close login form">&times;</span>
             <img src="/images/logo.jpg" alt="logo" class="logo">
@@ -51,8 +52,8 @@
 
 
          <div class="container">
-            <input type="text" placeholder="Username" name="username" required autofocus>
-            <input type="password" placeholder="Password" name="password" required>
+            <input type="text" placeholder="Utilizador" name="username" required autofocus>
+            <input type="password" placeholder="Palavra-passe" name="password" required>
             <br>
             <button type="submit">Entrar</button>
 
@@ -64,7 +65,7 @@
 
    <form class="modalSignup-content" action="/actions/action_signup.php" onsubmit="return canUserSignup();" method="post">
       <div class="imgcontainer">
-         <h3>Criar nova conta</h3>
+         <span class="Title2">Criar nova conta</span>
          <span onclick="document.getElementById('id02').style.display='none'" class="close"
             title="Close login form">&times;</span>
          <img src="/images/logo.jpg" alt="logo" class="logo">
@@ -85,7 +86,7 @@
       </div>
    </form>
 </div>
-
+<br><br><br>
 </body>
 
 </html>
