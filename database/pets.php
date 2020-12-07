@@ -1,12 +1,15 @@
 <?php
 include_once('../includes/init.php');
+include_once('upload_single.php');
 
-function addPet($idowner, $name, $location, $age, $species, $size)
+function addPet($coverPhoto, $idowner, $name, $location, $age, $species, $size)
 {
+    $coverPhotoId = upload_single_photo($coverPhoto);
     global $dbh;
     try {
-        $stmt = $dbh->prepare('INSERT INTO Pet(idowner, name, age, location, species, size) 
-            VALUES (:idowner, :name, :age, :location, :species, :size)');
+        $stmt = $dbh->prepare('INSERT INTO Pet(idphoto, idowner, name, age, location, species, size) 
+            VALUES (:idphoto, :idowner, :name, :age, :location, :species, :size)');
+        $stmt->bindParam(':idphoto', $coverPhotoId);
         $stmt->bindParam(':idowner', $idowner);
         $stmt->bindParam(':name', $name);
         $stmt->bindParam(':age', $age);

@@ -358,3 +358,41 @@ width: 10.2%;
 
 /** Gallery Banner **/
 
+/** Photo dialog **/
+.image-preview{
+  width: 200px;
+  height: 200px;
+  border: 2px solid lightgray;
+  margin-top: 15px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: rgb(155, 155, 155);
+}
+
+.image-preview__image{
+  display:none;
+  width: 100%;
+}
+
+
+.image-preview__button{
+  content: 'Select some files';
+  display: inline-block;
+  background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3);
+  border: 1px solid #999;
+  border-radius: 3px;
+  padding: 5px 8px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  text-shadow: 1px 1px #fff;
+  font-size: 10pt;
+  width: 100px;
+}
+
+
+/** Photo dialog **/
