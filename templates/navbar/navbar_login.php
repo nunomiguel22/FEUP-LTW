@@ -1,7 +1,9 @@
 <html>
 <body>
    <div class="NavBar">
-      <img src="/images/logo.jpg" alt="toplogo" class="toplogo">
+      <a href="/index.php"> 
+         <span class="HomeTitle">Adoption</span> <span class="HomeTitle" style="Color: Red;">GO</span>
+      </a>
       <div class="NavBar-right">
          <?php
                 $loginDropdown =

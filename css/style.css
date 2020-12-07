@@ -61,6 +61,11 @@ button:hover {
   height: 25px;
 }
 
+a {
+  color: inherit; /* blue colors for links too */
+  text-decoration: inherit; /* no underline */
+}
+
  /*** General ***/
 
 
@@ -193,39 +198,32 @@ height: 300px;
 /*** NavBar ***/
   
 .NavBar {
-background-color: rgb(255, 255, 255);
-overflow: hidden;
-position: fixed; 
-top: 0; 
-width: 100%;
-z-index: 1;
+  background-color: rgb(255, 255, 255);
+  overflow: hidden;
+  position: fixed; 
+  top: 0; 
+  width: 100%;
+  z-index: 1;
 }
 
 .NavBar-right {
-float: right;
-padding-right:20px;
+  float: right;
+  padding-right:20px;
 }
 
 .NavBar a {
-float: left;
-color: #f2f2f2;
-text-align: center;
-padding: 5px 16px;
-text-decoration: none;
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 5px 16px;
+  text-decoration: none;
 }
 
 .NavBar .highlight {
   color: rgb(226, 55, 55); 
   font-weight: bold;
   font-size: 20;
-  }
-  
-
-
-.toplogo{
-width: 10.2%;
 }
-
 
 .dropdown {
     float: left;
@@ -245,7 +243,7 @@ width: 10.2%;
   width: 100%;
 }
 
-.NavBar a:hover, .dropdown:hover .dropbtn {
+.dropdown:hover .dropbtn {
   background-color: rgb(243, 243, 243);
 }
 
@@ -396,3 +394,16 @@ width: 10.2%;
 
 
 /** Photo dialog **/
+
+/** Home navbar title **/
+.HomeTitle{
+  position: relative;
+  color:rgb(80, 80, 80);
+  font-size: 25;
+  /* font-family: "Garamond"; */
+  text-align: center;
+  font-weight: bold;
+  top: 10px;
+}
+
+/** Home navbar title **/
