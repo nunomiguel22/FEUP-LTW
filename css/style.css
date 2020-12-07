@@ -54,13 +54,6 @@ button:hover {
   text-align: center;
 }
 
-.custom-select {
-  position: relative;
-  font-family: Arial;
-  width: 40%;
-  height: 25px;
-}
-
 a {
   color: inherit; /* blue colors for links too */
   text-decoration: inherit; /* no underline */
@@ -114,10 +107,6 @@ a {
     background-size: 150px 100px;
     padding-bottom: 50px;
     font-family: 'Lucida Sans Regular';
-}
-
-#Ultimos {
-
 }
 
 
@@ -357,9 +346,15 @@ height: 300px;
 /** Gallery Banner **/
 
 /** Photo dialog **/
+.CoverPhotoDialog{
+  float:left;
+}
+
 .image-preview{
-  width: 200px;
-  height: 200px;
+  min-width: 200px;
+  min-height: 200px;
+  max-width: 400px;
+  max-height: 300px;
   border: 2px solid lightgray;
   margin-top: 15px;
 
@@ -407,3 +402,38 @@ height: 300px;
 }
 
 /** Home navbar title **/
+
+/** New Pet **/
+.NewPet-container{
+width: 30%;
+margin:auto;
+padding: 10px;
+}
+
+.custom-select {
+  position: relative;
+  font-family: Arial;
+  width: 100%;
+  height: 25px;
+}
+
+.NewPet-Info{
+  font-family: Noto Sans,sans-serif;
+  font-weight: bold;
+  font-size: 13;
+  color:rgb(78, 78, 78);
+}
+
+.newPetBanner{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  height: 200px;
+  border: 1px solid black;
+  box-shadow: 0 0 2px 1px rgba(107, 107, 107, 0.473);
+
+
+}
+
+/** New Pet **/

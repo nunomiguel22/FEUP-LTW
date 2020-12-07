@@ -1,7 +1,13 @@
 <html>
 
 <body>
-    <div class="container">
+    <br>
+    <div class="Banner">
+        <img src="/images/banner-ex2.jpg" alt="Adoption GO" class="newPetBanner">
+        <div class="BannerTitle" style="left: 50%;">Registe o seu animal de estimação</div>
+    </div>
+
+    <div class="NewPet-container">
         <form enctype="multipart/form-data" id="new_pet_form" action="/actions/action_add_pet.php" method="post">
 
             <div class="CoverPhotoDialog">
@@ -19,13 +25,13 @@
             <input type="text" placeholder="Nome" name="name" required autofocus>
             <input type="text" placeholder="Localização" name="location" required>
             <input type="number" name="age" placeholder="Idade" min="1" max="100">
-            <span class="smallinfo"> Espécie </span> <br>
+            <span class="NewPet-Info"> Espécie </span> <br>
             <select class="custom-select" name="species">
                 <option value="dog">Cão</option>
                 <option value="cat">Gato</option>
             </select>
             <br>
-            <span class="smallinfo"> Tamanho </span> <br>
+            <span class="NewPet-Info"> Tamanho </span> <br>
             <select class="custom-select" name="size">
                 <option value="small">Pequeno</option>
                 <option value="medium">Médio</option>
@@ -33,7 +39,7 @@
             </select>
 
             <br>
-            <button type="submit">Registar animal para adopção</button>
+            <button type="submit">Registar animal</button>
         </form>
     </div>
 </body>

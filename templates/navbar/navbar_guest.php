@@ -23,7 +23,9 @@
             <span class="Title2">Entrar na conta</span>
             <span onclick="document.getElementById('id01').style.display='none'" class="close"
                title="Close login form">&times;</span>
-            <img src="/images/logo.jpg" alt="logo" class="logo">
+            <a href="/index.php"> 
+               <span class="HomeTitle">Adoption</span> <span class="HomeTitle" style="Color: Red;">GO</span>
+            </a>
          </div>
 
 
@@ -44,7 +46,9 @@
          <span class="Title2">Criar nova conta</span>
          <span onclick="document.getElementById('id02').style.display='none'" class="close"
             title="Close login form">&times;</span>
-         <img src="/images/logo.jpg" alt="logo" class="logo">
+         <a href="/index.php"> 
+            <span class="HomeTitle">Adoption</span> <span class="HomeTitle" style="Color: Red;">GO</span>
+         </a>
       </div>
 
 
