@@ -310,8 +310,8 @@ height: 300px;
 .image-preview{
   min-width: 200px;
   min-height: 200px;
-  max-width: 400px;
-  max-height: 300px;
+  max-width: 320px;
+  max-height: 320px;
   border: 2px solid lightgray;
   margin-top: 15px;
 
@@ -401,10 +401,17 @@ padding: 10px;
   padding: 10px;
   }
 
-.previewGallery-image-noinfo{
+.previewGallery-image{
   width:300px;
   height: 200px;
+  margin: 3px;
   box-shadow: 0 0 2px 1px rgba(107, 107, 107, 0.473);
+  transition: 1s all ease; 
 }
+
+.previewGallery-image:hover{
+  transform: scale(1.05);
+}
+
 
   /** Gallery **/

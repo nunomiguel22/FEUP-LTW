@@ -17,8 +17,35 @@ function addPet($coverPhoto, $idowner, $name, $location, $age, $species, $size)
         $stmt->bindParam(':species', $species);
         $stmt->bindParam(':size', $size);
         
-        if ($stmt->execute()) {
-            return 0;
+        if (!$stmt->execute()) {
+            return -1;
+        }
+
+        $petid = $dbh->lastInsertId();
+
+        $stmt = $dbh->prepare('INSERT INTO PetPhotos(idphoto, idpet) VALUES (:idphoto, :idpet)');
+        $stmt->bindParam(':idphoto', $coverPhotoId);
+        $stmt->bindParam(':idpet', $petid);
+        if (!$stmt->execute()) {
+            return -1;
+        }
+        return 0;
+    } catch (PDOException $e) {
+        echo $e;
+        return -1;
+    }
+
+    return 0;
+}
+
+function getPetbyId($id)
+{
+    global $dbh;
+    try {
+        $stmt = $dbh->prepare('SELECT * FROM Pet WHERE id=?');
+        $stmt->execute(array($id));
+        if ($pet = $stmt->fetch()) {
+            return $pet;
         } else {
             return -1;
         }
@@ -26,6 +53,4 @@ function addPet($coverPhoto, $idowner, $name, $location, $age, $species, $size)
         echo $e;
         return -1;
     }
-
-    return 0;
 }

@@ -13,7 +13,6 @@ if (isLoggedIn()) {
     $size = $_POST["size"];
 
     if (addPet($coverPhoto, $idowner, $name, $location, $age, $species, $size) == -1) {
-        echo("<br><br><br>Statement failed: ". $stmt_test->error . "<br>");
         echo('<script>alert("Failed to add pet")</script>
                 <script>window.location.replace("../index.php")</script>');
     }

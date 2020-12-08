@@ -10,10 +10,10 @@ function upload_single_photo($photo)
         $stmt->execute();
         $count = $stmt->fetch()["count"] + 1;
         
-        $dir = "../images";
+        $dir = "/images";
         $target = $dir."/Pet".$count.'.'.strtolower(pathinfo($photo["name"], PATHINFO_EXTENSION));
     
-        move_uploaded_file($photo["tmp_name"], $target);
+        move_uploaded_file($photo["tmp_name"], '..'.$target);
     
         $stmt = $dbh->prepare('INSERT INTO Photo(path) VALUES (:path)');
         $stmt->bindParam(':path', $target);
@@ -24,6 +24,19 @@ function upload_single_photo($photo)
     }
 }
 
+function get_petid_by_photoid($idphoto)
+{
+    try {
+        global $dbh;
+        $stmt = $dbh->prepare('SELECT idpet FROM PetPhotos WHERE idphoto=?');
+        $stmt->execute(array($idphoto));
+        $petid = $stmt->fetch()["idpet"];
+        return $petid;
+    } catch (PDOException $e) {
+        return -1;
+    }
+    return -1;
+}
 
 function get_preview_gallery_photos($count)
 {

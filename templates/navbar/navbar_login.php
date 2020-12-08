@@ -11,7 +11,7 @@
                      <button class="dropbtn">'.$_SESSION['username'].'</button>
                      <div class="dropdown-content">
                         <a href="#">Perfil</a>
-                        <a href="/pages/newpet.php">Registar Animal</a>
+                        <a href="/pages/new_pet.php">Registar Animal</a>
                         <a href="/actions/action_logout.php">Sair</a>
                      </div>
                   </div>';
