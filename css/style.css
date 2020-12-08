@@ -4,8 +4,14 @@
 
  body {
   margin: 0;
+  overflow-x: hidden;
+  max-width: 100%;
   font-family: Arial, Helvetica, sans-serif;
   background-color: #f0f0f0;
+}
+
+li {
+  display: inline;
 }
 
 /* input fields */
@@ -60,55 +66,6 @@ a {
 }
 
  /*** General ***/
-
-
-/* Showcase */
-#showcase {
-    min-height: 190px;
-    background: url('/images/dogsanimated.jpg') no-repeat  640px -80px ;
-    
-}
-
-
-/* Images Background*/
-
-#Ultimos {
-    margin:0;
-    padding:0;
-    padding-left: 160px;
-  
-    
-}
-
-#Ultimos li{
-    float:left;
-    display:inline;
-    padding: 0 90px 50px 100px; /* top right bottom left*/
-   
-    
-}
-
-#Adoptimg {
-    text-align:center;
-
-}
-
-#dog1 {
-    min-height: 80px;
-    background: url('/images/a1.jpg') no-repeat 0 0 ;
-    background-size: 150px 100px;
-    padding-bottom: 50px;
-    font-family: 'Lucida Sans Regular';
-}
-
-#cat1 {
-    min-height: 80px;
-    background: url('/images/c1.jpg') no-repeat 0 0 ;
-    background-size: 150px 100px;
-    padding-bottom: 50px;
-    font-family: 'Lucida Sans Regular';
-}
-
 
 
 /* cancel button */
@@ -432,8 +389,22 @@ padding: 10px;
   height: 200px;
   border: 1px solid black;
   box-shadow: 0 0 2px 1px rgba(107, 107, 107, 0.473);
-
-
 }
 
 /** New Pet **/
+
+/** Gallery **/
+
+.previewGallery-container{
+  width: 60%;
+  margin:auto;
+  padding: 10px;
+  }
+
+.previewGallery-image-noinfo{
+  width:300px;
+  height: 200px;
+  box-shadow: 0 0 2px 1px rgba(107, 107, 107, 0.473);
+}
+
+  /** Gallery **/

@@ -1,6 +1,6 @@
 <?php
-include_once('../includes/init.php');
-include_once('upload_single.php');
+include_once(dirname(__FILE__).'/../includes/init.php');
+include_once(dirname(__FILE__).'/photos.php');
 
 function addPet($coverPhoto, $idowner, $name, $location, $age, $species, $size)
 {

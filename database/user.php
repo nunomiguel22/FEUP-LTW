@@ -1,5 +1,5 @@
 <?php
-include_once('../includes/init.php');
+include_once(dirname(__FILE__).'/../includes/init.php');
 
 function verifyUserLogin($username, $password)
 {
