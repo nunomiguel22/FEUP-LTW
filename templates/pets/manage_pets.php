@@ -1,3 +1,5 @@
+
+
 <html>
 
 <body>
@@ -11,7 +13,8 @@
   <br> <br> <br>
 
   <?php
-        global $dbh;
+    include_once("../database/pet_table.php");
+        /*global $dbh;
         $stmt = $dbh->prepare('SELECT * FROM Pet');
         $stmt->execute();
         $userdata = $stmt->fetchAll();
@@ -34,20 +37,17 @@
         echo '<table  class="Petstable" >
         <tr>
           <th>Photo</th>
-          <th>Id</th>
           <th>Name</th>
           <th>Age</th>
           <th>Location</th>
           <th>Species</th>
           <th>Size</th>
-          <th>Link</th>
         </tr>';
 
         $sizeof= sizeof($userdata);
         $n =0;
         
         $petphotoid= array_column($userdata, 'idphoto');
-        $id= array_column($userdata, 'id');
         $name=array_column($userdata, 'name');
         $age= array_column($userdata, 'age');
         $location= array_column($userdata, 'location');
@@ -58,19 +58,21 @@
           '
           <tr>
           <td> <img src='.$photobyid[$petphotoid[$n]].' alt="Adoption GO" class="pettablephoto" width=80px>  </td>
-            <td>'.$id[$n].'</td>
             <td>'.$name[$n].'</td>
             <td>'.$age[$n].'</td>
             <td>'.$location[$n].'</td>
             <td>'.$species[$n].'</td>
             <td>'.$size[$n].'</td>
-            <td>'.$id[$n].'</td>
           </tr>
           '
         ;
             echo $buildtable;
         }
-        echo '</table>'
+        echo '</table>'*/
+        
+        draw_table(get_all_idowner_pets(getSessionUserID()));
+        
+
         ?>
 
 </body>

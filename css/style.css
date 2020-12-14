@@ -56,7 +56,7 @@ button:hover {
  }
 
  footer {
-  padding: 1rem 0;
+  padding: 9px 0;
   position: fixed;
   left: 0;
   bottom: 0;
@@ -544,7 +544,14 @@ padding: 10px;
 
 .pettablephoto
 {
+  width: 80px;
+  height: 50px;
   box-shadow: 0 0 2px 2px rgba(215, 226, 54, 0.473);
+}
+
+.Petstable tr:hover{
+  background-color: rgb(255, 103, 103);
+  cursor:pointer;
 }
 /** User Page **/
 
