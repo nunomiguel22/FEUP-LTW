@@ -10,7 +10,7 @@
                   '<div class="dropdown">
                      <button class="dropbtn">'.$_SESSION['username'].'</button>
                      <div class="dropdown-content">
-                        <a href="#">Perfil</a>
+                        <a href="/pages/userpage.php">Perfil</a>
                         <a href="/pages/new_pet.php">Registar Animal</a>
                         <a href="/actions/action_logout.php">Sair</a>
                      </div>
@@ -19,6 +19,6 @@
         ?>
       </div>
    </div>
-<br><br><br>
+   <div class="NavBar-padding"> </div>
 </body>
 </html>

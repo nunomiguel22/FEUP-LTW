@@ -12,21 +12,11 @@ if ($pet == -1) {
     die();
 }
 
-include_once(dirname(__FILE__).'/../database/photos.php');
 include_once(dirname(__FILE__)."/../includes/navbar.php");
+
+echo '<div class="widthControl">';
+include_once(dirname(__FILE__)."/../templates/pets/pet_info.php");
+echo '</div>';
+
+
 include_once(dirname(__FILE__)."/../templates/common/footer.php");
-
-
-$photoloc = get_photo_by_id($pet["idphoto"]);
-echo ' <img src="'.$photoloc.'" alt="Adoption GO" style="width:500px;" class="previewGallery-image-noinfo">';
-
-echo '<br>';
-echo '<span>'.$pet["name"].'</span>';
-echo '<br>';
-echo '<span>'.$pet["age"].'</span>';
-echo '<br>';
-echo '<span>'.$pet["location"].'</span>';
-echo '<br>';
-echo '<span>'.$pet["species"].'</span>';
-echo '<br>';
-echo '<span>'.$pet["size"].'</span>';

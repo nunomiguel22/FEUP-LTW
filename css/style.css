@@ -8,6 +8,12 @@
   max-width: 100%;
   font-family: Arial, Helvetica, sans-serif;
   background-color: #f0f0f0;
+  text-align:center;
+}
+
+.widthControl{
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 li {
@@ -171,6 +177,10 @@ height: 300px;
   font-size: 20;
 }
 
+.NavBar-padding{
+  padding: 30px;
+}
+
 .dropdown {
     float: left;
     overflow: hidden;
@@ -268,6 +278,7 @@ height: 300px;
   font-weight: bold;
 }
 
+
 /** Text **/
 
 /** Gallery Banner **/
@@ -360,7 +371,7 @@ height: 300px;
 
 /** Home navbar title **/
 
-/** New Pet **/
+/** Pet **/
 .NewPet-container{
 width: 30%;
 margin:auto;
@@ -391,7 +402,47 @@ padding: 10px;
   box-shadow: 0 0 2px 1px rgba(107, 107, 107, 0.473);
 }
 
-/** New Pet **/
+.PetInfo-image{
+  padding: 10px;
+  float: left;
+  width:40%;
+  min-width:250px;
+  max-height: 300px;
+}
+
+.PetInfo-container {
+  background-image: linear-gradient(to right, rgb(240, 240, 240) , rgb(221, 221, 221));
+  width: 30%;
+  min-width:600px;
+  margin: auto;
+  overflow: hidden;
+  display: flex;
+  border: none;
+  box-shadow: 0px 0px 0.5px 0.5px #000000;
+}
+
+.PetInfo-Name {
+  width:90%; 
+  float:left; 
+  color:rgb(80, 80, 80);
+  font-size: 32;
+  font-family: "Garamond";
+  text-align: left;
+  font-weight: bold;
+  border-bottom: 1px solid rgba(71, 71, 71, 0.623);
+}
+
+.PetInfo-text {
+  width:50%; 
+  float:left; 
+  color:rgb(53, 53, 53);
+  font-size: 20;
+  font-family: "Consolas";
+  text-align: left;
+  padding: 40px;
+}
+
+/** Pet **/
 
 /** Gallery **/
 
@@ -415,3 +466,5 @@ padding: 10px;
 
 
   /** Gallery **/
+
+
