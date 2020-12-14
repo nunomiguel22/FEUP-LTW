@@ -54,3 +54,31 @@ function getPetbyId($id)
         return -1;
     }
 }
+
+function getPetPhotosbyPetId($id)
+{
+    global $dbh;
+    try {
+        $stmt = $dbh->prepare('SELECT idphoto FROM PetPhotos WHERE idpet=?');
+        $stmt->execute(array($id));
+        if (!($photoids = $stmt->fetchAll())) {
+            return array();
+        }
+
+        $res = [];
+
+        foreach ($photoids as $photoid) {
+            $stmt = $dbh->prepare('SELECT path FROM Photo WHERE id=?');
+            $stmt->execute(array($photoid["idphoto"]));
+            if ($photopath = $stmt->fetch()) {
+                array_push($res, $photopath["path"]);
+            } else {
+                return -1;
+            }
+        }
+        return $res;
+    } catch (PDOException $e) {
+        echo $e;
+        return -1;
+    }
+}

@@ -453,7 +453,8 @@ padding: 10px;
   }
 
 .previewGallery-image{
-  width:300px;
+  width:100%;
+  max-width:300px;
   height: 200px;
   margin: 3px;
   box-shadow: 0 0 2px 1px rgba(107, 107, 107, 0.473);
@@ -464,6 +465,36 @@ padding: 10px;
   transform: scale(1.05);
 }
 
+.PetGallery-slide{
+  display: none;
+  max-width: 500px;
+  margin: auto;
+}
+
+.PetGallery-button-left{
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  top:30%;
+}
+
+.PetGallery-button-right{
+  position: absolute;
+  right: 0;
+  top:30%;
+  height: 50px;
+  width: 50px;
+}
+
+.PetGallery-container{
+  display: flex;
+  position: relative;
+  min-width:600px;
+  width: 50%;
+  background-image: linear-gradient(to right, rgba(235, 130, 81, 0.753) , rgb(230, 224, 224));
+  margin: auto;
+  box-shadow: 0 0 2px 1px rgba(107, 107, 107, 0.473);
+}
 
   /** Gallery **/
 
@@ -516,3 +547,5 @@ padding: 10px;
   box-shadow: 0 0 2px 2px rgba(215, 226, 54, 0.473);
 }
 /** User Page **/
+
+
