@@ -1,6 +1,8 @@
 <?php
 include_once(dirname(__FILE__).'/../includes/init.php');
 
+
+
 function verifyUserLogin($username, $password)
 {
     global $dbh;
@@ -70,6 +72,22 @@ function getUserIDbyEmail($email)
             return $row['id'];
         }
         return -1;
+    } catch (PDOException $e) {
+        return -1;
+    }
+}
+
+function getUserbyID($user_id)
+{
+    global $dbh;
+    try {
+        $stmt = $dbh->prepare('SELECT username FROM User WHERE id = ?');
+        $stmt->execute(array($user_id));
+        if ($row = $stmt->fetch()) {
+            return $row['username'];
+        } else {
+            return -1;
+        }
     } catch (PDOException $e) {
         return -1;
     }

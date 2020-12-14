@@ -457,7 +457,7 @@ padding: 10px;
   max-width:300px;
   height: 200px;
   margin: 3px;
-  box-shadow: 0 0 2px 1px rgba(107, 107, 107, 0.473);
+  box-shadow: 0 0 1px 1px rgba(107, 107, 107, 0.473);
   transition: 1s all ease; 
 }
 
@@ -493,7 +493,7 @@ padding: 10px;
   width: 50%;
   background-image: linear-gradient(to right, rgba(235, 130, 81, 0.753) , rgb(230, 224, 224));
   margin: auto;
-  box-shadow: 0 0 2px 1px rgba(107, 107, 107, 0.473);
+  box-shadow: 0 0 1px 1px rgba(107, 107, 107, 0.473);
 }
 
   /** Gallery **/
@@ -549,3 +549,55 @@ padding: 10px;
 /** User Page **/
 
 
+/** Comments **/
+.comment-div{
+  text-align: left;
+  margin-bottom: 5px;
+  border-bottom: 1px dashed rgba(71, 71, 71, 0.623);
+}
+
+.comment-div-selected{
+  text-align: left;
+  margin-bottom: 5px;
+  border-bottom: 1px dashed rgba(71, 71, 71, 0.623);
+  background-color: rgb(196, 226, 255);
+}
+
+.comment-text {
+  color:rgb(0, 0, 0);
+  font-size: 14;
+  font-family: "Consolas";
+  padding-left:5px;
+}
+
+.comment-info {
+  padding-left:20px;
+  color:rgb(119, 119, 119);
+  font-size: 11;
+  font-family: "Consolas";
+}
+.comment-reply {
+  cursor:pointer;
+}
+
+.comments-container{
+  background-color: rgb(247, 247, 247);
+  box-shadow: 0 0 1px 1px rgba(41, 41, 41, 0.473);
+  margin-top: 20px;
+  margin-left:auto;
+  margin-right:auto;
+  min-width:600px;
+  width: 50%;
+}
+
+.reply-container{
+  box-shadow:none;
+  margin-top: 20px;
+  margin-left:auto;
+  margin-right:auto;
+  min-width:600px;
+  width: 50%;
+  text-align:left;
+}
+
+/** Comments **/

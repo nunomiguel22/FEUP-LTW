@@ -82,3 +82,61 @@ function getPetPhotosbyPetId($id)
         return -1;
     }
 }
+
+
+function getRootCommentsByPetId($petid)
+{
+    global $dbh;
+    try {
+        $stmt = $dbh->prepare('SELECT * FROM Comments WHERE (idpet=? AND idparent=?)');
+        $stmt->execute(array($petid, 0));
+        if ($comments = $stmt->fetchAll()) {
+            return $comments;
+        } else {
+            return -1;
+        }
+    } catch (PDOException $e) {
+        echo $e;
+        return -1;
+    }
+}
+
+function getCommentChildren($comment_id)
+{
+    global $dbh;
+    try {
+        $stmt = $dbh->prepare('SELECT * FROM Comments WHERE idparent=?');
+        $stmt->execute(array($comment_id));
+        if ($comments = $stmt->fetchAll()) {
+            return $comments;
+        } else {
+            return -1;
+        }
+    } catch (PDOException $e) {
+        echo $e;
+        return -1;
+    }
+}
+
+function addComment($id_pet, $id_user, $id_parent, $message)
+{
+    global $dbh;
+    try {
+        $stmt = $dbh->prepare('INSERT INTO Comments(idpet, idowner, idparent, message) 
+            VALUES (:idpet, :idowner, :idparent, :message)');
+        $stmt->bindParam(':idpet', $id_pet);
+        $stmt->bindParam(':idowner', $id_user);
+        $stmt->bindParam(':idparent', $id_parent);
+        $stmt->bindParam(':message', $message);
+        
+        if (!$stmt->execute()) {
+            return -1;
+        }
+        return 0;
+    } catch (PDOException $e) {
+        echo $e;
+        return -1;
+    }
+
+    return 0;
+}

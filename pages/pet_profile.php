@@ -1,6 +1,7 @@
 <?php
 include_once(dirname(__FILE__).'/../database/pets.php');
 include_once(dirname(__FILE__)."/../templates/pets/pet_gallery.php");
+include_once(dirname(__FILE__)."/../templates/comments/comment_section.php");
 
 echo '<br>';
 
@@ -24,6 +25,8 @@ echo '<br>';
 echo '<span class="Title1"> Galeria de fotos</span>';
 display_pet_gallery($pet_id);
 echo '</div>';
+
+print_comment_section($pet_id);
 
 
 include_once(dirname(__FILE__)."/../templates/common/footer.php");

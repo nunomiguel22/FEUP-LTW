@@ -8,9 +8,9 @@
                                                         <!-- verificar -->
     </div>
 
-    <?php 
-    $idowner = getSessionUserID(); 
-    $print1 ='<form method="POST" action= "/actions/action_change_usernamepw">
+    <?php
+    $idowner = getSessionUserID();
+    $print1 ='<form method="POST" action= "/actions/action_change_username_pw.php">
             <div class = "Editp-gen" > <br>
             <span class ="Editptitle"> Alteração de nome e password </span> <br>
              <br>
@@ -25,7 +25,7 @@
             </form>';
 
     echo $print1;
-    $print2 = '<form action= "/actions/action_delacc">
+    $print2 = '<form action= "/actions/action_del_acc.php">
             <div class = "Editp-gen" >
             <button type="submit">Eliminar Conta</button>
             </div>
