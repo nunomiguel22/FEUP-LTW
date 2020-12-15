@@ -2,13 +2,13 @@
 include_once(dirname(__FILE__).'/../includes/init.php');
 include_once(dirname(__FILE__).'/photos.php');
 
-function addPet($coverPhoto, $idowner, $name, $location, $age, $species, $size)
+function addPet($coverPhoto, $idowner, $name, $location, $age, $species, $size, $status)
 {
     $coverPhotoId = upload_single_photo($coverPhoto);
     global $dbh;
     try {
-        $stmt = $dbh->prepare('INSERT INTO Pet(idphoto, idowner, name, age, location, species, size) 
-            VALUES (:idphoto, :idowner, :name, :age, :location, :species, :size)');
+        $stmt = $dbh->prepare('INSERT INTO Pet(idphoto, idowner, name, age, location, species, size, status) 
+            VALUES (:idphoto, :idowner, :name, :age, :location, :species, :size, :status)');
         $stmt->bindParam(':idphoto', $coverPhotoId);
         $stmt->bindParam(':idowner', $idowner);
         $stmt->bindParam(':name', $name);
@@ -16,7 +16,7 @@ function addPet($coverPhoto, $idowner, $name, $location, $age, $species, $size)
         $stmt->bindParam(':location', $location);
         $stmt->bindParam(':species', $species);
         $stmt->bindParam(':size', $size);
-        
+        $stmt->bindParam(':status', $status);
         if (!$stmt->execute()) {
             return -1;
         }

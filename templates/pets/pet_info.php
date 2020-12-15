@@ -8,7 +8,11 @@ echo '<section class="PetInfo-container">';
 $photoloc = get_photo_by_id($pet["idphoto"]);
 echo ' <img src="'.$photoloc.'" alt="Adoption GO" class="PetInfo-image">';
 
-
+if ($pet["status"] == 1) {
+    $check = "&#10003;";
+} else {
+    $check = "&#10006;";
+}
 
 
 echo '<div class="PetInfo-text">';
@@ -25,5 +29,8 @@ echo '<span style="float:right;">'.$pet["species"].'</span>';
 echo '<br>';
 echo '<span style="font-style: italic;">Tamanho    </span>';
 echo '<span style="float:right;">'.$pet["size"].'</span>';
+echo '<br>';
+echo '<span style="font-style: italic;">Para adopção    </span>';
+echo '<span style="float:right;">'.$check.'</span>';
 echo '</div>';
 echo '</section>';

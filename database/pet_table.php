@@ -39,12 +39,13 @@ function draw_table($userdata)
 
     echo '<table  class="Petstable" >
         <tr>
-          <th>Photo</th>
-          <th>Name</th>
-          <th>Age</th>
-          <th>Location</th>
-          <th>Species</th>
-          <th>Size</th>
+          <th>Foto</th>
+          <th>Nome</th>
+          <th>Idade</th>
+          <th>Localização</th>
+          <th>Espécie</th>
+          <th>Tamanho</th>
+          <th>Para adopção</th>
         </tr>';
 
     $sizeof= sizeof($userdata);
@@ -57,7 +58,14 @@ function draw_table($userdata)
     $location= array_column($userdata, 'location');
     $species= array_column($userdata, 'species');
     $size= array_column($userdata, 'size');
+    $status= array_column($userdata, 'status');
     for ($n =0; $n < $sizeof; $n++) {
+        if ($status[$n] == 1) {
+            $check = "&#10003;";
+        } else {
+            $check = "&#10006;";
+        }
+
         echo '<a href="/pages/pet_profile.php?petid='.$petid[$n].'">';
         $buildtable=
           '
@@ -68,6 +76,7 @@ function draw_table($userdata)
             <td>'.$location[$n].'</td>
             <td>'.$species[$n].'</td>
             <td>'.$size[$n].'</td>
+            <td>'.$check.'</td>
           </tr>
           '
         ;

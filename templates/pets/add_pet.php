@@ -27,18 +27,20 @@
             <input type="number" name="age" placeholder="Idade" min="1" max="100">
             <span class="NewPet-Info"> Espécie </span> <br>
             <select class="custom-select" name="species">
-                <option value="dog">Cão</option>
-                <option value="cat">Gato</option>
+                <option value="cão">Cão</option>
+                <option value="gato">Gato</option>
+                <option value="outro">Outro</option>
             </select>
             <br>
             <span class="NewPet-Info"> Tamanho </span> <br>
             <select class="custom-select" name="size">
-                <option value="small">Pequeno</option>
-                <option value="medium">Médio</option>
-                <option value="large">Grande</option>
+                <option value="pequeno">Pequeno</option>
+                <option value="médio">Médio</option>
+                <option value="grande">Grande</option>
             </select>
-
-            <br>
+            <br><br>
+            <input type="checkbox" style="float: left;" id="status_checkmark" name="status">
+            <label for="status_checkmark" style="float: left;"> Para adopção?</label><br><br>
             <button type="submit">Registar animal</button>
         </form>
     </div>
