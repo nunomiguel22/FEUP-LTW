@@ -12,7 +12,7 @@ function print_comment($comment, $padding)
     echo '<br>';
     echo '<span class="comment-text">'.$comment["message"].'</span>';
     echo '<br>';
-    echo '<span class="comment-info comment-reply" comment_id="'.$comment["id"].'">responder</span>';
+    echo '<span class="comment-info comment-reply" style="color:darkgray;" comment_id="'.$comment["id"].'">responder</span>';
     echo '</div>';
 
     $children = getCommentChildren($comment["id"]);
@@ -60,7 +60,7 @@ function generate_comment_form($pet_id)
             method="post">
     
             <div class="">
-                <input type="text" id="comment_message" placeholder="Faça perguntas sobre o animal." name="message" required>
+                <textarea rows="4" style="width:100%;" id="comment_message" name="message" placeholder="Faça perguntas sobre o animal." form="pet_comment_form" required></textarea>
                 <input type="hidden" name="id_pet" value="'.$pet_id.'" required>
                 <input type="hidden" id="comment_parent" name="id_parent" value="0" required>
                 <br>

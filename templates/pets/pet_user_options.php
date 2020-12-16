@@ -8,7 +8,13 @@ $pet_id = $pet["id"];
 $pet_fav = is_pet_favorite($user_id, $pet_id);
 
 echo '<div class="PetOptions">';
-echo '<button type="button" class="PetOptions-button"> Propor adopção </button>';
+
+if ($pet["status"] == 0) {
+    echo '<button type="button" class="PetOptions-button-disabled" disabled> Propor adopção </button>';
+} else {
+    echo '<button type="button" class="PetOptions-button"> Propor adopção </button>';
+}
+
 if ($pet_fav) {
     echo '<button type="button" class="PetOptions-button" id="pet-fav-button"> Favorito <span id_pet='.$pet_id.' is_fav=1 id="pet-fav-star" style="color:red;"> &#9733; </span> </button>';
 } else {

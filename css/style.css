@@ -456,6 +456,18 @@ padding: 10px;
   font-size: 14;
 }
 
+.PetOptions-button-disabled{
+  width:30%;
+  background-color:rgba(0, 0, 0, 0);
+  color:rgb(156, 156, 156);
+  border-radius: 10%;
+  box-shadow: 0px 0px 0.5px 0.5px #666666;
+  margin: 10px;
+  font-size: 14;
+  cursor:default;
+  pointer-events: none;
+}
+
 
 
 /** Pet **/

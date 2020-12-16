@@ -28,6 +28,6 @@ display_pet_gallery($pet_id);
 echo '</div>';
 
 print_comment_section($pet_id);
-echo '<script type="text/javascript" src="../js/pet_page.js"></script>';
+echo '<script type="text/javascript" src="/js/pet_page.js"></script>';
 
 include_once(dirname(__FILE__)."/../templates/common/footer.php");

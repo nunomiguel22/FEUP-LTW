@@ -4,6 +4,7 @@ include_once("../includes/session.php");
 include_once("../database/pets.php");
 include_once("../database/user.php");
 
+
 if (isLoggedIn()) {
     $id_owner = getSessionUserID();
     $id_pet = $_POST["id_pet"];
