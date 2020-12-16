@@ -34,3 +34,9 @@ echo '<span style="font-style: italic;">Para adopção    </span>';
 echo '<span style="float:right;">'.$check.'</span>';
 echo '</div>';
 echo '</section>';
+
+
+
+
+/* echo '<span style="color:pink"> &#9734; </span>';
+echo '<span style="color:pink"> &#9733; </span>'; */

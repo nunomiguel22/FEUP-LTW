@@ -442,6 +442,22 @@ padding: 10px;
   padding: 40px;
 }
 
+.PetOptions{
+  width:50%;
+  margin:auto;
+}
+
+.PetOptions-button{
+  width:30%;
+  background-color:rgba(0, 0, 0, 0);
+  border-radius: 10%;
+  box-shadow: 0px 0px 0.5px 0.5px #666666;
+  margin: 10px;
+  font-size: 14;
+}
+
+
+
 /** Pet **/
 
 /** Gallery **/

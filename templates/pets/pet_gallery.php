@@ -11,6 +11,5 @@ function display_pet_gallery($pet_id)
 
     echo '<button class="PetGallery-button-left" onclick="plusDivs(-1)">&#10094;</button>';
     echo '<button class="PetGallery-button-right" onclick="plusDivs(+1)">&#10095;</button>';
-    echo '<script type="text/javascript" src="../../js/pet_gallery.js"></script>';
     echo '</div>';
 }

@@ -42,7 +42,6 @@ function print_comment_section($pet_id)
 
     echo '</div>';
     echo '<br><br>';
-    echo '<script type="text/javascript" src="../../js/pet_comment.js"></script>';
 }
 
 function generate_comment_form($pet_id)

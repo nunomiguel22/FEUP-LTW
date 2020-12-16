@@ -8,12 +8,9 @@ if ($debug) {
 }
 
 
-function console_log($output, $with_script_tags = true)
+function console_log($output)
 {
-    $js_code = 'console.log(' . json_encode($output, JSON_HEX_TAG) .
-');';
-    if ($with_script_tags) {
-        $js_code = '<script>' . $js_code . '</script>';
-    }
-    echo $js_code;
+    $res = json_encode($output);
+
+    echo '<script> console.log('.$res.'); </script>';
 }

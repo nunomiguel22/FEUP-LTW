@@ -2,6 +2,7 @@
 include_once(dirname(__FILE__).'/../includes/init.php');
 include_once(dirname(__FILE__).'/photos.php');
 
+
 function addPet($coverPhoto, $idowner, $name, $location, $age, $species, $size, $status)
 {
     $coverPhotoId = upload_single_photo($coverPhoto);
@@ -139,4 +140,52 @@ function addComment($id_pet, $id_user, $id_parent, $message)
     }
 
     return 0;
+}
+
+function set_pet_favorite($id_user, $id_pet)
+{
+    global $dbh;
+    try {
+        $stmt = $dbh->prepare('INSERT INTO Favorites(idpet, iduser) VALUES (:idpet, :iduser)');
+        $stmt->bindParam(':idpet', $id_user);
+        $stmt->bindParam(':iduser', $id_pet);
+        if (!$stmt->execute()) {
+            return -1;
+        }
+    } catch (PDOException $e) {
+        echo $e;
+        return -1;
+    }
+}
+
+function remove_pet_favorite($id_user, $id_pet)
+{
+    global $dbh;
+    try {
+        $stmt = $dbh->prepare('DELETE FROM Favorites WHERE idpet=? AND iduser=?');
+        $stmt->execute(array($id_user,$id_pet));
+        if (!$stmt->execute()) {
+            return -1;
+        }
+    } catch (PDOException $e) {
+        echo $e;
+        return -1;
+    }
+}
+
+function is_pet_favorite($id_user, $id_pet)
+{
+    global $dbh;
+    try {
+        $stmt = $dbh->prepare('SELECT * FROM Favorites WHERE idpet=? AND iduser=?');
+        $stmt->execute(array($id_user,$id_pet));
+        if (!($fav = $stmt->fetch())) {
+            return false;
+        }
+        
+        return !(empty($fav));
+    } catch (PDOException $e) {
+        echo $e;
+        return false;
+    }
 }
