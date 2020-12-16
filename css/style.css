@@ -546,6 +546,12 @@ padding: 10px;
   font-size: 10;
   
 }
+.Petstable-div{
+  width:70%;
+  margin:auto;
+  justify-content: center;
+  display:flex;
+}
 
 .Petstable{ 
   width:80%;

@@ -24,6 +24,29 @@ function get_search_pets($age, $location, $species, $size)
 {
 }
 
+function get_user_favorite_pets($id_user)
+{
+    global $dbh;
+    $stmt = $dbh->prepare('SELECT idpet FROM Favorites WHERE iduser=?');
+    $stmt->execute(array($id_user));
+    if (!($pet_ids = $stmt->fetchAll())) {
+        return array();
+    }
+
+    
+    $pets = [];
+    foreach ($pet_ids as $pet_id) {
+        $stmt = $dbh->prepare('SELECT * FROM Pet WHERE id=?');
+        $stmt->execute(array($pet_id["idpet"]));
+        if ($res = $stmt->fetch()) {
+            array_push($pets, $res);
+        } else {
+            return -1;
+        }
+    }
+    return $pets;
+}
+
 function draw_table($userdata)
 {
     global $dbh;
@@ -66,7 +89,6 @@ function draw_table($userdata)
             $check = "&#10006;";
         }
 
-        echo '<a href="/pages/pet_profile.php?petid='.$petid[$n].'">';
         $buildtable=
           '
           <tr class="pet_row" pet_id="'.$petid[$n].'">

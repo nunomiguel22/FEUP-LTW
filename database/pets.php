@@ -147,8 +147,8 @@ function set_pet_favorite($id_user, $id_pet)
     global $dbh;
     try {
         $stmt = $dbh->prepare('INSERT INTO Favorites(idpet, iduser) VALUES (:idpet, :iduser)');
-        $stmt->bindParam(':idpet', $id_user);
-        $stmt->bindParam(':iduser', $id_pet);
+        $stmt->bindParam(':idpet', $id_pet);
+        $stmt->bindParam(':iduser', $id_user);
         if (!$stmt->execute()) {
             return -1;
         }
@@ -163,7 +163,7 @@ function remove_pet_favorite($id_user, $id_pet)
     global $dbh;
     try {
         $stmt = $dbh->prepare('DELETE FROM Favorites WHERE idpet=? AND iduser=?');
-        $stmt->execute(array($id_user,$id_pet));
+        $stmt->execute(array($id_pet,$id_user));
         if (!$stmt->execute()) {
             return -1;
         }
@@ -178,7 +178,7 @@ function is_pet_favorite($id_user, $id_pet)
     global $dbh;
     try {
         $stmt = $dbh->prepare('SELECT * FROM Favorites WHERE idpet=? AND iduser=?');
-        $stmt->execute(array($id_user,$id_pet));
+        $stmt->execute(array($id_pet,$id_user));
         if (!($fav = $stmt->fetch())) {
             return false;
         }

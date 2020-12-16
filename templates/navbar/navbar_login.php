@@ -13,6 +13,7 @@
                      <a href="/pages/userpage.php">Editar Perfil</a>
                      <a href="/pages/new_pet.php">Registar Animal</a>
                      <a href="/pages/pet_manage.php">Gerir animais</a>
+                     <a href="/pages/favorites.php">Favoritos</a>
                      <a href="#">Minhas propostas</a>
                      <a href="/actions/action_logout.php">Sair</a>
                      </div>
