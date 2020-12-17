@@ -2,7 +2,6 @@
 include_once(dirname(__FILE__).'/../includes/init.php');
 
 
-
 function verifyUserLogin($username, $password)
 {
     global $dbh;
@@ -50,7 +49,7 @@ function getUserID($username)
 {
     global $dbh;
     try {
-        $stmt = $dbh->prepare('SELECT id FROM User WHERE username = ?');
+        $stmt = $dbh->prepare('SELECT id FROM User WHERE username=?');
         $stmt->execute(array($username));
         if ($row = $stmt->fetch()) {
             return $row['id'];
@@ -66,8 +65,9 @@ function getUserIDbyEmail($email)
 {
     global $dbh;
     try {
-        $stmt = $dbh->prepare('SELECT id FROM User WHERE email = ?');
+        $stmt = $dbh->prepare('SELECT id FROM User WHERE email=?');
         $stmt->execute(array($email));
+        
         if ($row = $stmt->fetch()) {
             return $row['id'];
         }

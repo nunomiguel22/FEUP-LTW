@@ -1,5 +1,13 @@
 var canSignup = true;
 
+var userBox = document.getElementById("sp_username");
+userBox.addEventListener("keyup", checkUsername);
+
+var emailBox = document.getElementById("sp_email");
+emailBox.addEventListener("keyup", checkEmail);
+
+var pwBox = document.getElementById("sp_password");
+pwBox.addEventListener("keyup", checkPassword);
 
 function checkUsername() {
     let user = document.getElementById("sp_username").value;
@@ -13,9 +21,26 @@ function checkEmail() {
     ajaxRequest('/actions/users/check_email.php', "POST", ajaxEmailHandler, params);
 }
 
+function checkPassword() {
+    let pwRes = document.getElementById("sp_password_r");
+    if (!pwBox.checkValidity()) {
+        pwRes.innerHTML = '<span class="smallerror">* password entre 5 a 10 caracteres e pelo menos um numero </span>';
+        canSignup = false;
+        pwBox.classList.remove("validBorder");
+        pwBox.classList.add("invalidBorder");
+    }
+    else {
+        pwRes.innerHTML = '<span class="smallallowed">* nome de utilizador disponivel </span>';
+        canSignup = true;
+        pwBox.classList.remove("invalidBorder");
+        pwBox.classList.add("validBorder");
+
+    }
+
+}
+
 function ajaxUsernameHandler(usernameIsCorrect) {
     let userRes = document.getElementById("sp_username_r");
-    let userBox = document.getElementById("sp_username");
     let username = userBox.value;
 
     if (username == "") {
@@ -38,7 +63,6 @@ function ajaxUsernameHandler(usernameIsCorrect) {
 
 function ajaxEmailHandler(emailIsCorrect) {
     let emailRes = document.getElementById("sp_email_r");
-    let emailBox = document.getElementById("sp_email");
     let email = emailBox.value;
 
     if (email == "") {
@@ -58,6 +82,8 @@ function ajaxEmailHandler(emailIsCorrect) {
         emailBox.classList.add("validBorder");
     }
 }
+
+
 
 
 function canUserSignup() {

@@ -7,7 +7,7 @@
    <meta name="viewport" cotent="width=device-width">
    <link rel="icon" href="/images/favicon.jpg">
    <script type="text/javascript" src="../js/ajax.js"></script>
-   <script type="text/javascript" src="../js/signup_dialog.js"></script>
+   
 </head>
 </html>
 
@@ -22,3 +22,5 @@ if (isLoggedIn()) {
 } else {
     include_once(dirname(__FILE__)."/../templates/navbar/navbar_guest.php");
 }
+
+echo '<script type="text/javascript" src="../js/signup_dialog.js"></script>';
