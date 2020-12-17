@@ -1,5 +1,7 @@
 <?php
 include_once(dirname(__FILE__)."/../../includes/init.php");
+verifyCSRF();
+
 include_once(dirname(__FILE__)."/../../database/pets.php");
 include_once(dirname(__FILE__)."/../../database/user.php");
 
@@ -24,4 +26,4 @@ if (addPet($coverPhoto, $idowner, $name, $location, $age, $species, $size, $stat
             <script>window.location.replace("/index.php")</script>');
 }
 
-//header("location: /index.php");
+header("location: /index.php");

@@ -1,5 +1,7 @@
 <?php
 include_once(dirname(__FILE__)."/../../includes/init.php");
+verifyCSRF();
+
 include_once(dirname(__FILE__)."/../../database/photos.php");
 
 include_once(dirname(__FILE__)."/../../includes/login_only.php");

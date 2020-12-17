@@ -1,13 +1,16 @@
 var canSignup = true;
 
 var userBox = document.getElementById("sp_username");
-userBox.addEventListener("keyup", checkUsername);
+if (userBox != null)
+    userBox.addEventListener("keyup", checkUsername);
 
 var emailBox = document.getElementById("sp_email");
-emailBox.addEventListener("keyup", checkEmail);
+if (emailBox != null)
+    emailBox.addEventListener("keyup", checkEmail);
 
 var pwBox = document.getElementById("sp_password");
-pwBox.addEventListener("keyup", checkPassword);
+if (pwBox != null)
+    pwBox.addEventListener("keyup", checkPassword);
 
 function checkUsername() {
     let user = document.getElementById("sp_username").value;
@@ -34,7 +37,6 @@ function checkPassword() {
         canSignup = true;
         pwBox.classList.remove("invalidBorder");
         pwBox.classList.add("validBorder");
-
     }
 
 }

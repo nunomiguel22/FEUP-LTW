@@ -57,8 +57,13 @@ function generate_comment_form($pet_id)
     
     
         <form class="reply-container" id="pet_comment_form" action="/actions/pets/comment_pet.php"
-            method="post">
-    
+            method="post">';
+
+          
+    include_once(dirname(__FILE__).'/../../includes/csrf.php');
+    insertCSRFToken();
+          
+    echo '
             <div class="">
                 <textarea rows="4" style="width:100%;" id="comment_message" name="message" placeholder="Faça perguntas sobre o animal." form="pet_comment_form" required></textarea>
                 <input type="hidden" name="id_pet" value="'.$pet_id.'" required>

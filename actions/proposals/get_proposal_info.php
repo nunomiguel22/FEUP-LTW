@@ -1,5 +1,8 @@
 <?php
 include_once(dirname(__FILE__)."/../../includes/init.php");
+
+
+
 include_once(dirname(__FILE__)."/../../database/proposal.php");
 include_once(dirname(__FILE__)."/../../database/user.php");
 

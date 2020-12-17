@@ -20,7 +20,12 @@ echo '
 
 
     <form enctype="multipart/form-data" class="modalEditPet-content" id="new_pet_form"
-        action="/actions/pets/edit_pet.php" method="post">
+        action="/actions/pets/edit_pet.php" method="post">';
+        
+        include_once(dirname(__FILE__).'/../../includes/csrf.php');
+        insertCSRFToken();
+        
+        echo'
         <div class="container">
             <span class="HomeTitle">Adoption</span> <span class="HomeTitle" style="Color: Red;">GO</span>
             <span class="close" style="float:right; position:relative; "

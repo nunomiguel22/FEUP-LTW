@@ -11,6 +11,10 @@
             </a>
         </div>
 
+        <?php
+        include_once(dirname(__FILE__).'/../../includes/csrf.php');
+        insertCSRFToken();
+        ?>
 
         <div class="container" style="text-align: left;">
             <span> Dono: </span> <span id="owner_span"> </span> <br>

@@ -1,5 +1,8 @@
 <?php
 include_once(dirname(__FILE__)."/../../includes/init.php");
+verifyCSRF();
+
+
 include_once(dirname(__FILE__)."/../../includes/session.php");
 include_once(dirname(__FILE__)."/../../database/pets.php");
 

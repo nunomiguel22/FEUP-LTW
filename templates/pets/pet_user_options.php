@@ -2,7 +2,7 @@
 include_once(dirname(__FILE__).'/../../database/pets.php');
 include_once(dirname(__FILE__).'/../../database/proposal.php');
 include_once(dirname(__FILE__).'/../../includes/session.php');
-
+include_once(dirname(__FILE__).'/../../includes/csrf.php');
 
 $owner_id = $pet["idowner"];
 $user_id = getSessionUserID();
@@ -36,8 +36,12 @@ function userOptions($pet, $user_id, $owner_id, $pet_id)
     echo '</div>';
     echo '
     <form class="reply-container" id="proposal_form" action="/actions/proposals/add_proposal.php"
-        method="post" style="display:none;">
-
+        method="post" style="display:none;">';
+        
+  
+    insertCSRFToken();
+      
+    echo '
         <div class="">
             <textarea rows="4" style="width:100%;" id="proposal_message" name="proposal_message" placeholder="Faça uma proposta de adopção." form="proposal_form" required></textarea>
             <input type="hidden" name="id_pet" value="'.$pet_id.'" required>
@@ -62,8 +66,10 @@ function ownerOptions($pet, $user_id, $owner_id, $pet_id)
     echo '
     <form style="display:none;" enctype="multipart/form-data" id="photo_form" action="/actions/pets/add_photos.php" method="post">
 
-        <div class="CoverPhotoDialog" style="float:right;">
+        <div class="CoverPhotoDialog" style="float:right;">';
 
+    insertCSRFToken();
+    echo '
             <input type="hidden" name="id_pet" value="'.$pet_id.'" required>
             <input  type="file" name="coverPhotoInput[]" id="coverPhotoInput" multiple  required>
             <button type="submit"  style="all: revert; width:200px;">submeter fotos</button>

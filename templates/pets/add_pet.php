@@ -10,6 +10,12 @@
     <div class="NewPet-container">
         <form enctype="multipart/form-data" id="new_pet_form" action="/actions/pets/add_pet.php" method="post">
 
+
+        <?php
+        include_once(dirname(__FILE__).'/../../includes/csrf.php');
+        insertCSRFToken();
+        ?>
+        
             <div class="CoverPhotoDialog">
 
                 <div class="image-preview" id="imagePreview">

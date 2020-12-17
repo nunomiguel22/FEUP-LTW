@@ -1,5 +1,6 @@
 <?php
 include_once(dirname(__FILE__)."/../../includes/init.php");
+verifyCSRF();
 include_once(dirname(__FILE__)."/../../database/user.php");
 
 $_SESSION['logged_in'] = false;
