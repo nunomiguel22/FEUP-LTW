@@ -3,6 +3,47 @@ include_once(dirname(__FILE__).'/../includes/init.php');
 include_once(dirname(__FILE__).'/photos.php');
 
 
+function searchPets($search, $min_age, $max_age, $species, $size)
+{
+    $query = 'SELECT * FROM Pet WHERE ';
+    $query .= '(age BETWEEN '.$min_age.' AND '.$max_age.')';
+
+    $keywords = array_filter(explode(" ", $search));
+
+    
+    foreach ($keywords as $keyword) {
+        $query .= ' AND (name LIKE "%'.$keyword.'%" OR location LIKE "%'.$keyword.'%")';
+    }
+    
+    if ($species != 'qualquer') {
+        $query .= ' AND species=:species';
+    }
+    if ($size != 'qualquer') {
+        $query .= ' AND size=:size';
+    }
+
+    global $dbh;
+    try {
+        $stmt = $dbh->prepare($query);
+        if ($species != 'qualquer') {
+            $stmt->bindParam(':species', $species);
+        }
+        if ($size != 'qualquer') {
+            $stmt->bindParam(':size', $size);
+        }
+        $stmt->execute();
+        if ($res = $stmt->fetchAll()) {
+            return $res;
+        } else {
+            return array();
+        }
+    } catch (PDOException $e) {
+        echo $e;
+        return array();
+    }
+}
+
+
 function addPet($coverPhoto, $idowner, $name, $location, $age, $species, $size, $status)
 {
     $coverPhotoId = uploadSinglePhoto($coverPhoto);

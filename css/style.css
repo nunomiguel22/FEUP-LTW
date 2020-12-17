@@ -679,3 +679,31 @@ padding: 10px;
 }
 
 /** Comments **/
+
+.search-button{
+  all:revert;
+  box-shadow: none;
+  cursor:pointer;
+  width: 350px;
+  height: 40px;
+  margin: 0 auto;
+  padding: 0;
+
+  background-color:rgb(228, 228, 228);
+  font-size: 18;
+  font-weight: bold;
+  border-width: 1px;
+  border-color: rgb(243, 44, 44);
+  border-radius: 20px;
+  color:rgb(100, 100, 100);
+}
+
+.search-button:hover{
+
+  box-shadow: 0 0 2px 2px rgba(41, 41, 41, 0.473);
+}
+
+
+.search-button:focus{
+  outline: none;
+}

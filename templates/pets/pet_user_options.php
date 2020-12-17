@@ -4,9 +4,6 @@ include_once(dirname(__FILE__).'/../../database/proposal.php');
 include_once(dirname(__FILE__).'/../../includes/session.php');
 
 
-
-
-
 $owner_id = $pet["idowner"];
 $user_id = getSessionUserID();
 $pet_id = $pet["id"];

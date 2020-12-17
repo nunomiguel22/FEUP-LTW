@@ -1,7 +1,6 @@
 <div id="prop_modal" class="modal">
 
-    <form class="modalLogin-content" id="proposal_form" style="height:40%;"
-        action="/actions/proposals/update_proposal.php" method="post">
+    <form class="" id="" style="" action="/actions/proposals/update_proposal.php" method="post">
         <div class="imgcontainer">
 
             <span onclick="document.getElementById('prop_modal').style.display='none'" class="close"
