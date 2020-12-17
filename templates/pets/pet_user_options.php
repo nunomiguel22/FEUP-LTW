@@ -59,6 +59,22 @@ function ownerOptions($pet, $user_id, $owner_id, $pet_id)
     include_once(dirname(__FILE__).'/edit_pet_modal.php');
     echo '<div class="PetOptions">';
     echo '<button type="button" class="PetOptions-button" id="edit-pet-button" > Editar </button>';
-    echo '<button type="button" class="PetOptions-button"> Adicionar fotos </button>';
+    echo '<button type="button" class="PetOptions-button" id="photo-pet-button"> Adicionar fotos </button>';
     echo '</div>';
+
+    echo '
+    <form style="display:none;" enctype="multipart/form-data" id="photo_form" action="/actions/pets/add_photos.php" method="post">
+
+        <div class="CoverPhotoDialog" style="float:right;">
+
+            <input type="hidden" name="id_pet" value="'.$pet_id.'" required>
+            <input  type="file" name="coverPhotoInput[]" id="coverPhotoInput" multiple  required>
+            <button type="submit"  style="all: revert; width:200px;">submeter fotos</button>
+            <br>
+            <span class="smallerror" id="CoverPhotoError"></span>
+            <script type="text/javascript" src="../js/new_pet_dialog.js"></script>
+
+        </div><br>
+   
+    </form>';
 }

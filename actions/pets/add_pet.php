@@ -24,4 +24,4 @@ if (addPet($coverPhoto, $idowner, $name, $location, $age, $species, $size, $stat
             <script>window.location.replace("/index.php")</script>');
 }
 
-header("location: /index.php");
+//header("location: /index.php");

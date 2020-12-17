@@ -24,13 +24,7 @@ function addPet($coverPhoto, $idowner, $name, $location, $age, $species, $size, 
 
         $petid = $dbh->lastInsertId();
 
-        $stmt = $dbh->prepare('INSERT INTO PetPhotos(idphoto, idpet) VALUES (:idphoto, :idpet)');
-        $stmt->bindParam(':idphoto', $coverPhotoId);
-        $stmt->bindParam(':idpet', $petid);
-        if (!$stmt->execute()) {
-            return -1;
-        }
-        return 0;
+        return addPhotoToPet($coverPhotoId, $petid);
     } catch (PDOException $e) {
         echo $e;
         return -1;

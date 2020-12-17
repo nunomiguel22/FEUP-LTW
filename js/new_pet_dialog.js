@@ -1,15 +1,21 @@
 var inpPhoto = document.getElementById("coverPhotoInput");
 var photoInfo = document.getElementById("CoverPhotoError");
 const previewContainer = document.getElementById("imagePreview");
-const previewImage = previewContainer.querySelector(".image-preview__image");
-const previewDefaultText = previewContainer.querySelector(".image-preview__default-text");
+var previewImage;
+var previewDefaultText;
 
-inpPhoto.addEventListener("invalid", function () {
-    this.setCustomValidity('Por favor, selecione imagem de perfil');
-});
+if (previewContainer != null) {
+    previewImage = previewContainer.querySelector(".image-preview__image");
+    previewDefaultText = previewContainer.querySelector(".image-preview__default-text");
+}
 
-inpPhoto.addEventListener("change", photoHandler);
+if (inpPhoto != null) {
+    inpPhoto.addEventListener("invalid", function () {
+        this.setCustomValidity('Por favor, selecione imagem de perfil');
+    });
 
+    inpPhoto.addEventListener("change", photoHandler);
+}
 
 function photoHandler() {
     this.setCustomValidity('');
@@ -36,9 +42,11 @@ function photoHandler() {
             return;
         }
         photoInfo.innerHTML = "";
-        previewDefaultText.style.display = "none";
-        previewImage.style.display = "block";
-        previewImage.setAttribute("src", this.result);
+        if (previewDefaultText && previewImage) {
+            previewDefaultText.style.display = "none";
+            previewImage.style.display = "block";
+            previewImage.setAttribute("src", this.result);
+        }
 
         //upload
     });
@@ -49,8 +57,10 @@ function photoHandler() {
 
 function resetPreview() {
     inpPhoto.value = "";
-    previewDefaultText.style.display = "block";
-    previewImage.style.display = "none";
+    if (previewDefaultText && previewImage) {
+        previewDefaultText.style.display = "block";
+        previewImage.style.display = "none";
+    }
 }
 
 

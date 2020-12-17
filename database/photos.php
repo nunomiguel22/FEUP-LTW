@@ -13,12 +13,39 @@ function uploadSinglePhoto($photo)
         $dir = "/images";
         $target = $dir."/Pet".$count.'.'.strtolower(pathinfo($photo["name"], PATHINFO_EXTENSION));
     
-        move_uploaded_file($photo["tmp_name"], '..'.$target);
+        move_uploaded_file($photo["tmp_name"], dirname(__FILE__).'/..'.$target);
     
         $stmt = $dbh->prepare('INSERT INTO Photo(path) VALUES (:path)');
         $stmt->bindParam(':path', $target);
         $stmt->execute();
         return $count;
+    } catch (PDOException $e) {
+        return -1;
+    }
+}
+
+function uploadPetPhotos($photos, $pet_id)
+{
+    foreach ($photos["tmp_name"] as $key=>$tmp_name) {
+        $photo["name"] = $photos["name"][$key];
+        $photo["tmp_name"] = $photos["tmp_name"][$key];
+
+        $photo_id = uploadSinglePhoto($photo);
+        addPhotoToPet($photo_id, $pet_id);
+    }
+}
+
+
+function addPhotoToPet($photo_id, $pet_id)
+{
+    try {
+        global $dbh;
+        $stmt = $dbh->prepare('INSERT INTO PetPhotos(idphoto, idpet) VALUES (:idphoto, :idpet)');
+        $stmt->bindParam(':idphoto', $photo_id);
+        $stmt->bindParam(':idpet', $pet_id);
+        if (!$stmt->execute()) {
+            return -1;
+        }
     } catch (PDOException $e) {
         return -1;
     }
@@ -30,8 +57,10 @@ function getPetIDfromPhotoID($idphoto)
         global $dbh;
         $stmt = $dbh->prepare('SELECT idpet FROM PetPhotos WHERE idphoto=?');
         $stmt->execute(array($idphoto));
-        $petid = $stmt->fetch()["idpet"];
-        return $petid;
+        if ($petid = $stmt->fetch()) {
+            return $petid["idpet"];
+        }
+        return -1;
     } catch (PDOException $e) {
         return -1;
     }

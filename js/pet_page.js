@@ -67,7 +67,7 @@ function favoriteHandler() {
     else {
         let params = { id_pet: petID };
         favoriteStar.style = "color:red;";
-        favoriteStar.innerHTML = "&#9733;"
+        favoriteStar.innerHTML = "&#9733;";
         ajaxRequest('/actions/pets/add_favorite.php', "POST", null, params);
 
     }
@@ -84,8 +84,8 @@ if (proposalButton != null)
 function proposalHandler() {
 
     if (proToggle)
-        proposalForm.style = "display:block;"
-    else proposalForm.style = "display:none;"
+        proposalForm.style = "display:block;";
+    else proposalForm.style = "display:none;";
 
     proToggle ^= 1;
 
@@ -98,5 +98,20 @@ if (editButton != null) {
     editButton.addEventListener("click", function () {
         var editForm = document.getElementById("edit_pet_modal");
         editForm.style = "display:block;"
+    })
+}
+
+var photoButton = document.getElementById("photo-pet-button");
+var photoButtonToggle = 0;
+var photoForm = document.getElementById("photo_form");
+
+if (photoButton != null) {
+    photoButton.addEventListener("click", function () {
+
+        if (photoButtonToggle == 0)
+            photoForm.style = "margin:auto; width:50%; display:flex;";
+        else photoForm.style = "display:none;";
+        photoButtonToggle ^= 1;
+
     })
 }
