@@ -39,6 +39,53 @@ function addPet($coverPhoto, $idowner, $name, $location, $age, $species, $size, 
     return 0;
 }
 
+function editPet($pet_id, $name, $location, $age, $species, $size, $status)
+{
+    global $dbh;
+    try {
+        $query = 'UPDATE Pet SET name=:name, age=:age, location=:location, 
+                    species=:species, size=:size, status=:status
+                    WHERE id=:idpet';
+
+        $stmt = $dbh->prepare($query);
+        $stmt->bindParam(':name', $name);
+        $stmt->bindParam(':age', $age);
+        $stmt->bindParam(':location', $location);
+        $stmt->bindParam(':species', $species);
+        $stmt->bindParam(':size', $size);
+        $stmt->bindParam(':status', $status);
+        $stmt->bindParam(':idpet', $pet_id);
+        if (!$stmt->execute()) {
+            return -1;
+        }
+        return 0;
+    } catch (PDOException $e) {
+        echo $e;
+        return -1;
+    }
+
+    return 0;
+}
+
+function removePet($pet_id)
+{
+    global $dbh;
+    try {
+        $query = 'DELETE FROM Pet WHERE id=:idpet';
+        $stmt = $dbh->prepare($query);
+        $stmt->bindParam(':idpet', $pet_id);
+        if (!$stmt->execute()) {
+            return -1;
+        }
+        return 0;
+    } catch (PDOException $e) {
+        echo $e;
+        return -1;
+    }
+
+    return 0;
+}
+
 function changeOwner($pet_id, $newOwner)
 {
     global $dbh;

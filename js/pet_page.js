@@ -50,10 +50,11 @@ function reset_selected() {
 
 var favoriteStar = document.getElementById("pet-fav-star");
 var favoriteButton = document.getElementById("pet-fav-button");
-var isFav = favoriteStar.getAttribute("is_fav");
 
-favoriteButton.addEventListener("click", favoriteHandler);
-
+if (favoriteButton != null && favoriteStar != null) {
+    var isFav = favoriteStar.getAttribute("is_fav");
+    favoriteButton.addEventListener("click", favoriteHandler);
+}
 
 function favoriteHandler() {
     var petID = favoriteStar.getAttribute("id_pet");
@@ -88,4 +89,14 @@ function proposalHandler() {
 
     proToggle ^= 1;
 
+}
+
+/** Edit pet **/
+var editButton = document.getElementById("edit-pet-button");
+
+if (editButton != null) {
+    editButton.addEventListener("click", function () {
+        var editForm = document.getElementById("edit_pet_modal");
+        editForm.style = "display:block;"
+    })
 }

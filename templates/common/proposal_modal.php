@@ -20,9 +20,9 @@
             <br><br>
             <span> Estado: </span> <span id="status_span"> </span>
             <input type="hidden" name="id_prop" id="id_prop_input" value="-1">
-            <button type="submit" name="submit" class="prob_sub" style="background-color:green;"
+            <button type="submit" name="submit" class="prob_sub" style="background-color:green; color:white;"
                 value="accept">Aceitar</button>
-            <button type="submit" name="submit" class="prob_sub" style="background-color:red;"
+            <button type="submit" name="submit" class="prob_sub" style="background-color:red; color:white;"
                 value"cancel">Cancelar</button>
         </div>
     </form>

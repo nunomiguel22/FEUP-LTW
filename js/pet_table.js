@@ -65,12 +65,12 @@ function hideButtons(status, isOwner) {
 
     if (!isOwner) {
         btns[0].style = "display:none;"
-        btns[1].style = "display:block; background-color:red;"
+        btns[1].style = "display:block; background-color:red; color:white;"
         propModal.style = "display:block;height:80%;";
         return;
     }
     propModal.style = "display:block;"
-    btns[0].style = "display:block; background-color:green;"
-    btns[1].style = "display:block; background-color:red;"
+    btns[0].style = "display:block; background-color:green; color:white;"
+    btns[1].style = "display:block; background-color:red; color:white;"
 }
 

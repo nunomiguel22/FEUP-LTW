@@ -5,27 +5,39 @@ include_once(dirname(__FILE__).'/../../includes/session.php');
 
 
 
+
+
+$owner_id = $pet["idowner"];
 $user_id = getSessionUserID();
 $pet_id = $pet["id"];
-$owner_id = $pet["idowner"];
-$pet_fav = isPetFavorite($user_id, $pet_id);
 
-echo '<div class="PetOptions">';
 
-if ($pet["status"] == 0 || PetHasOfferByUserID($pet_id)) {
-    echo '<button type="button" class="PetOptions-button-disabled" disabled> Propor adopção </button>';
+if ($user_id != $owner_id) {
+    userOptions($pet, $user_id, $owner_id, $pet_id);
 } else {
-    echo '<button type="button" id="proposal_button" class="PetOptions-button"> Propor adopção </button>';
+    ownerOptions($pet, $user_id, $owner_id, $pet_id);
 }
 
-if ($pet_fav) {
-    echo '<button type="button" class="PetOptions-button" id="pet-fav-button"> Favorito <span id_pet='.$pet_id.' is_fav=1 id="pet-fav-star" style="color:red;"> &#9733; </span> </button>';
-} else {
-    echo '<button type="button" class="PetOptions-button" id="pet-fav-button"> Favorito <span id_pet='.$pet_id.' is_fav=0 id="pet-fav-star" style=""> &#9734; </span> </button>';
-}
 
-echo '</div>';
-echo '
+function userOptions($pet, $user_id, $owner_id, $pet_id)
+{
+    $pet_fav = isPetFavorite($user_id, $pet_id);
+    echo '<div class="PetOptions">';
+
+    if ($pet["status"] == 0 || PetHasOfferByUserID($pet_id)) {
+        echo '<button type="button" class="PetOptions-button-disabled" disabled> Propor adopção </button>';
+    } else {
+        echo '<button type="button" id="proposal_button" class="PetOptions-button"> Propor adopção </button>';
+    }
+
+    if ($pet_fav) {
+        echo '<button type="button" class="PetOptions-button" id="pet-fav-button"> Favorito <span id_pet='.$pet_id.' is_fav=1 id="pet-fav-star" style="color:red;"> &#9733; </span> </button>';
+    } else {
+        echo '<button type="button" class="PetOptions-button" id="pet-fav-button"> Favorito <span id_pet='.$pet_id.' is_fav=0 id="pet-fav-star" style=""> &#9734; </span> </button>';
+    }
+
+    echo '</div>';
+    echo '
     <form class="reply-container" id="proposal_form" action="/actions/proposals/add_proposal.php"
         method="post" style="display:none;">
 
@@ -39,3 +51,14 @@ echo '
 
         </div>
     </form>';
+}
+
+
+function ownerOptions($pet, $user_id, $owner_id, $pet_id)
+{
+    include_once(dirname(__FILE__).'/edit_pet_modal.php');
+    echo '<div class="PetOptions">';
+    echo '<button type="button" class="PetOptions-button" id="edit-pet-button" > Editar </button>';
+    echo '<button type="button" class="PetOptions-button"> Adicionar fotos </button>';
+    echo '</div>';
+}
