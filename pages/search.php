@@ -10,6 +10,7 @@ $min_age = $_GET["min_age"];
 $max_age = $_GET["max_age"];
 $species = $_GET["species"];
 $size = $_GET["size"];
+$status = $_GET["status"];
 
 echo '
 <html>
@@ -31,7 +32,7 @@ echo '
   include_once(dirname(__FILE__)."/../database/pets.php");
   include_once(dirname(__FILE__)."/../templates/common/table.php");
   
-  $pets = searchPets($search, $min_age, $max_age, $species, $size);
+  $pets = searchPets($search, $min_age, $max_age, $species, $size, $status);
   drawTable($pets);
 
   echo '

@@ -1,5 +1,13 @@
 <?php
 
+if ($status== "qualquer") {
+    $choice ="qualquer";
+} elseif ($status == 1) {
+    $choice = "Sim";
+} elseif ($status == 0) {
+    $choice = "Não";
+}
+
 echo'
 <div id="" class="">
 
@@ -13,7 +21,7 @@ echo'
         <input type="number" style="width:12%; height: 25px;" name="max_age" placeholder="Idade" value="'.$max_age.'" min="0"
             max="100">
         <span class="NewPet-Info"> Espécie </span>
-        <select class="custom-select" name="species" style="width:10%;" required>
+        <select class="custom-select" name="species" style="width:5%;" required>
             <option value="qualquer">qualquer</option>
             <option value="cão">cão</option>
             <option value="gato">gato</option>
@@ -21,12 +29,19 @@ echo'
             <option selected="selected" hidden>'.$species.'</option>
         </select>
         <span class="NewPet-Info"> Tamanho </span>
-        <select class="custom-select" name="size" style="width:10%;" required>
+        <select class="custom-select" name="size" style="width:5%;" required>
             <option value="qualquer">qualquer</option>
             <option value="pequeno">pequeno</option>
             <option value="médio">médio</option>
             <option value="grande">grande</option>
             <option selected="selected" hidden>'.$size.'</option>
+        </select>
+        <span class="NewPet-Info"> Disponível para adopção </span>
+        <select class="custom-select" name="status" style="width:5%;" required>
+            <option value="qualquer">qualquer</option>
+            <option value="1">Sim</option>
+            <option value="0">Não</option>
+            <option selected="selected" hidden>'.$choice.'</option>
         </select>
         <button type="submit" style="all:revert; width:12%;height:24px; margin:auto;">procurar</button>
         <br><br>

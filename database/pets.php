@@ -3,7 +3,7 @@ include_once(dirname(__FILE__).'/../includes/init.php');
 include_once(dirname(__FILE__).'/photos.php');
 
 
-function searchPets($search, $min_age, $max_age, $species, $size)
+function searchPets($search, $min_age, $max_age, $species, $size, $status)
 {
     $query = 'SELECT * FROM Pet WHERE ';
     $query .= '(age BETWEEN '.$min_age.' AND '.$max_age.')';
@@ -22,6 +22,10 @@ function searchPets($search, $min_age, $max_age, $species, $size)
         $query .= ' AND size=:size';
     }
 
+    if ($status != 'qualquer') {
+        $query .= ' AND status=:status';
+    }
+
     global $dbh;
     try {
         $stmt = $dbh->prepare($query);
@@ -31,6 +35,10 @@ function searchPets($search, $min_age, $max_age, $species, $size)
         if ($size != 'qualquer') {
             $stmt->bindParam(':size', $size);
         }
+        if ($status != 'qualquer') {
+            $stmt->bindParam(':status', $status);
+        }
+        
         $stmt->execute();
         if ($res = $stmt->fetchAll()) {
             return $res;
