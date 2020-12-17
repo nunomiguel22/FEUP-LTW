@@ -59,7 +59,7 @@ function favoriteHandler() {
     var petID = favoriteStar.getAttribute("id_pet");
     if (isFav) {
         let params = { id_pet: petID };
-        ajaxRequest('/actions/action_remove_pet_favorite.php', "POST", null, params);
+        ajaxRequest('/actions/pets/remove_favorite.php', "POST", null, params);
         favoriteStar.style = "";
         favoriteStar.innerHTML = "&#9734;"
     }
@@ -67,8 +67,25 @@ function favoriteHandler() {
         let params = { id_pet: petID };
         favoriteStar.style = "color:red;";
         favoriteStar.innerHTML = "&#9733;"
-        ajaxRequest('/actions/action_add_pet_favorite.php', "POST", null, params);
+        ajaxRequest('/actions/pets/add_favorite.php', "POST", null, params);
 
     }
     isFav ^= 1;
+}
+
+/** Proposal */
+var proposalForm = document.getElementById("proposal_form");
+var proposalButton = document.getElementById("proposal_button");
+var proToggle = true;
+if (proposalButton != null)
+    proposalButton.addEventListener("click", proposalHandler);
+
+function proposalHandler() {
+
+    if (proToggle)
+        proposalForm.style = "display:block;"
+    else proposalForm.style = "display:none;"
+
+    proToggle ^= 1;
+
 }

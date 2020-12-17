@@ -56,7 +56,7 @@ function generate_comment_form($pet_id)
     <body>
     
     
-        <form class="reply-container" id="pet_comment_form" action="/actions/action_comment.php"
+        <form class="reply-container" id="pet_comment_form" action="/actions/pets/comment_pet.php"
             method="post">
     
             <div class="">

@@ -3,9 +3,7 @@ include_once("../includes/init.php");
 include_once("../database/user.php");
 global $dbh;
 
-//$username = $_POST["username"];
-//$password = $_POST['password'];
-//$name = $_POST['name'];
+
 $curruser= $_SESSION['username'];
 
 $stmt = $dbh->prepare('SELECT pwhash, name FROM User WHERE username= ?');
@@ -14,42 +12,27 @@ $userdata = $stmt->fetch();
 
 
 
-//print_r($userdata);
 
-
-
-if(empty( ($_POST["username"]))){
-$username = $_SESSION['username'];  
-//echo 'no username filled!!!!!!!'; 
-}
-else {
+if (empty(($_POST["username"]))) {
+    $username = $_SESSION['username'];
+} else {
     $username = $_POST["username"];
-    //echo 'bugggggg';
 }
 
-if(empty( ($_POST['password']))){
+if (empty(($_POST['password']))) {
     $hashed= $userdata["pwhash"];
-}
-else{
+} else {
     $password = $_POST['password'];
     $options = [ 'cost' => 11,
     ];
     $hashed = password_hash($password, PASSWORD_DEFAULT, $options);
 }
 
-if(empty(($_POST['name']))){
+if (empty(($_POST['name']))) {
     $name=$userdata["name"];
-}
-else {
+} else {
     $name = $_POST['name'];
 }
-
-/*echo 'username';
-print_r($username);
-echo 'pwwww    ';
-print_r($hashed); 
-echo '   name ';
-print_r($name); */
 
 try {
     $stmt = $dbh->prepare(' UPDATE User SET username= :username, pwhash=:pwhash, name= :name WHERE username= :curruser');

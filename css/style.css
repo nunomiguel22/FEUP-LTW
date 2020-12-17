@@ -11,6 +11,25 @@
   text-align:center;
 }
 
+textarea {
+  resize: none;
+}
+
+span{
+  color:rgb(80, 80, 80);
+  font-size: 14;
+  font-family: "Consolas";
+  font-weight: bold;
+}
+
+td{
+  color:rgb(80, 80, 80);
+  font-size: 14;
+  font-family: "Consolas";
+  font-weight: bold;
+}
+
+
 .widthControl{
   padding-left: 10px;
   padding-right: 10px;
@@ -262,6 +281,8 @@ height: 300px;
   border: 1px solid green;
 }
 
+
+
 .Title1{
   color:rgb(80, 80, 80);
   font-size: 25;
@@ -455,6 +476,9 @@ padding: 10px;
   margin: 10px;
   font-size: 14;
 }
+.PetOptions-button:focus{
+  outline: none;
+}
 
 .PetOptions-button-disabled{
   width:30%;
@@ -563,6 +587,7 @@ padding: 10px;
   margin:auto;
   justify-content: center;
   display:flex;
+  background-color:rgb(221, 221, 221);
 }
 
 .Petstable{ 

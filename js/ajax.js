@@ -24,7 +24,6 @@ function ajaxRequest(page, type = "GET", func, params = {}) {
     request.onload = function (data) {
         if (this.readyState == 4 && this.status == 200) {
             let result = this.responseText;
-            console.log(result);
             try {
                 result = JSON.parse(result);
 

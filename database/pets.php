@@ -5,7 +5,7 @@ include_once(dirname(__FILE__).'/photos.php');
 
 function addPet($coverPhoto, $idowner, $name, $location, $age, $species, $size, $status)
 {
-    $coverPhotoId = upload_single_photo($coverPhoto);
+    $coverPhotoId = uploadSinglePhoto($coverPhoto);
     global $dbh;
     try {
         $stmt = $dbh->prepare('INSERT INTO Pet(idphoto, idowner, name, age, location, species, size, status) 
@@ -39,6 +39,25 @@ function addPet($coverPhoto, $idowner, $name, $location, $age, $species, $size, 
     return 0;
 }
 
+function changeOwner($pet_id, $newOwner)
+{
+    global $dbh;
+    try {
+        $stmt = $dbh->prepare('UPDATE Pet SET idowner=:newowner, status=0 WHERE id=:idpet');
+        $stmt->bindParam(':newowner', $newOwner);
+        $stmt->bindParam(':idpet', $pet_id);
+        
+        if (!$stmt->execute()) {
+            return -1;
+        }
+
+        return 0;
+    } catch (PDOException $e) {
+        echo $e;
+        return -1;
+    }
+}
+
 function getPetbyId($id)
 {
     global $dbh;
@@ -56,34 +75,20 @@ function getPetbyId($id)
     }
 }
 
-function getPetPhotosbyPetId($id)
+function getAllPetsByUserID($idowner)
 {
-    global $dbh;
     try {
-        $stmt = $dbh->prepare('SELECT idphoto FROM PetPhotos WHERE idpet=?');
-        $stmt->execute(array($id));
-        if (!($photoids = $stmt->fetchAll())) {
-            return array();
-        }
-
-        $res = [];
-
-        foreach ($photoids as $photoid) {
-            $stmt = $dbh->prepare('SELECT path FROM Photo WHERE id=?');
-            $stmt->execute(array($photoid["idphoto"]));
-            if ($photopath = $stmt->fetch()) {
-                array_push($res, $photopath["path"]);
-            } else {
-                return -1;
-            }
-        }
+        global $dbh;
+        $stmt = $dbh->prepare('SELECT * FROM Pet WHERE idowner=?');
+        $stmt->execute(array($idowner));
+        $res = $stmt->fetchAll();
+    
         return $res;
     } catch (PDOException $e) {
         echo $e;
         return -1;
     }
 }
-
 
 function getRootCommentsByPetId($petid)
 {
@@ -142,7 +147,7 @@ function addComment($id_pet, $id_user, $id_parent, $message)
     return 0;
 }
 
-function set_pet_favorite($id_user, $id_pet)
+function setPetFavorite($id_user, $id_pet)
 {
     global $dbh;
     try {
@@ -156,9 +161,10 @@ function set_pet_favorite($id_user, $id_pet)
         echo $e;
         return -1;
     }
+    return 0;
 }
 
-function remove_pet_favorite($id_user, $id_pet)
+function removePetFavorite($id_user, $id_pet)
 {
     global $dbh;
     try {
@@ -171,9 +177,10 @@ function remove_pet_favorite($id_user, $id_pet)
         echo $e;
         return -1;
     }
+    return 0;
 }
 
-function is_pet_favorite($id_user, $id_pet)
+function isPetFavorite($id_user, $id_pet)
 {
     global $dbh;
     try {
@@ -188,4 +195,22 @@ function is_pet_favorite($id_user, $id_pet)
         echo $e;
         return false;
     }
+}
+
+function getFavoritePetsByUserID($id_user)
+{
+    global $dbh;
+    
+    $query = "SELECT Pet.* FROM Pet LEFT JOIN Favorites 
+                ON Pet.id = Favorites.idpet WHERE Favorites.iduser=?";
+    
+    $stmt = $dbh->prepare($query);
+
+    $stmt->execute(array($id_user));
+    $res = $stmt->fetchAll();
+    if (!$res) {
+        return array();
+    }
+
+    return $res;
 }

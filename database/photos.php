@@ -2,7 +2,7 @@
 include_once(dirname(__FILE__).'/../includes/init.php');
 
 
-function upload_single_photo($photo)
+function uploadSinglePhoto($photo)
 {
     try {
         global $dbh;
@@ -24,7 +24,7 @@ function upload_single_photo($photo)
     }
 }
 
-function get_petid_by_photoid($idphoto)
+function getPetIDfromPhotoID($idphoto)
 {
     try {
         global $dbh;
@@ -38,7 +38,7 @@ function get_petid_by_photoid($idphoto)
     return -1;
 }
 
-function get_preview_gallery_photos($count)
+function getPreviewPhotos($count)
 {
     try {
         global $dbh;
@@ -52,7 +52,7 @@ function get_preview_gallery_photos($count)
     }
 }
 
-function get_photo_by_id($id)
+function getPhotoPathByID($id)
 {
     try {
         global $dbh;
@@ -64,6 +64,23 @@ function get_photo_by_id($id)
             return -1;
         }
     } catch (PDOException $e) {
+        return -1;
+    }
+}
+
+function getPhotosbyPetId($id)
+{
+    global $dbh;
+    try {
+        $query = "SELECT Photo.path FROM Photo LEFT JOIN PetPhotos
+                ON PetPhotos.idphoto = Photo.id WHERE PetPhotos.idpet=?";
+
+        $stmt = $dbh->prepare($query);
+        $stmt->execute(array($id));
+        $res = $stmt->fetchAll(PDO::FETCH_COLUMN, 0);
+        return $res;
+    } catch (PDOException $e) {
+        echo $e;
         return -1;
     }
 }

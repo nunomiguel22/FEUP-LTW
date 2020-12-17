@@ -8,7 +8,7 @@
     </div>
 
     <div class="NewPet-container">
-        <form enctype="multipart/form-data" id="new_pet_form" action="/actions/action_add_pet.php" method="post">
+        <form enctype="multipart/form-data" id="new_pet_form" action="/actions/pets/add_pet.php" method="post">
 
             <div class="CoverPhotoDialog">
 

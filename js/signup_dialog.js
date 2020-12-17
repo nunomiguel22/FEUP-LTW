@@ -4,13 +4,13 @@ var canSignup = true;
 function checkUsername() {
     let user = document.getElementById("sp_username").value;
     let params = { username: user };
-    ajaxRequest('/actions/action_check_username.php', "POST", ajaxUsernameHandler, params);
+    ajaxRequest('/actions/users/check_username.php', "POST", ajaxUsernameHandler, params);
 }
 
 function checkEmail() {
     let email = document.getElementById("sp_email").value;
     let params = { email: email };
-    ajaxRequest('/actions/action_check_email.php', "POST", ajaxEmailHandler, params);
+    ajaxRequest('/actions/users/check_email.php', "POST", ajaxEmailHandler, params);
 }
 
 function ajaxUsernameHandler(usernameIsCorrect) {

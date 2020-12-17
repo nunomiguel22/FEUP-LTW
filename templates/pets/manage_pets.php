@@ -11,8 +11,9 @@
   <br> <br> <br>
   <div class="Petstable-div">
   <?php
-    include_once(dirname(__FILE__)."/../../database/pet_table.php");
-    draw_table(get_all_idowner_pets(getSessionUserID()));
+    include_once(dirname(__FILE__)."/../common/table.php");
+    include_once(dirname(__FILE__)."/../../database/pets.php");
+    drawTable(getAllPetsByUserID(getSessionUserID()));
   ?>
 </div>
 </body>

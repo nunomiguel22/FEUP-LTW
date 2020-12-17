@@ -18,7 +18,7 @@
    
       <div id="id01" class="modal">
 
-         <form class="modalLogin-content" id="login_form" action="/actions/action_login.php" method="post">
+         <form class="modalLogin-content" id="login_form" action="/actions/users/login_user.php" method="post">
             <div class="imgcontainer">
                <span class="Title2">Entrar na conta</span>
                <span onclick="document.getElementById('id01').style.display='none'" class="close"
@@ -41,7 +41,7 @@
 
       <div id="id02" class="modal">
 
-         <form class="modalSignup-content" action="/actions/action_signup.php" onsubmit="return canUserSignup();" method="post">
+         <form class="modalSignup-content" action="/actions/users/signup_user.php" onsubmit="return canUserSignup();" method="post">
             <div class="imgcontainer">
                <span class="Title2">Criar nova conta</span>
                <span onclick="document.getElementById('id02').style.display='none'" class="close"

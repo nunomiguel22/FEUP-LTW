@@ -1,6 +1,7 @@
 <?php
 include_once(dirname(__FILE__)."/../includes/navbar.php");
 include_once(dirname(__FILE__)."/../includes/session.php");
+include_once(dirname(__FILE__)."/../database/pets.php");
 
 echo '
 <html>
@@ -14,12 +15,11 @@ echo '
   </div>
 
   <br> <br> <br>
-  <div class="Petstable-div">
-  
-  ';
+  <div class="Petstable-div">';
 
-  include_once("../database/pet_table.php");
-  draw_table(get_user_favorite_pets(getSessionUserID()));
+  include_once(dirname(__FILE__)."/../database/pets.php");
+  include_once(dirname(__FILE__)."/../templates/common/table.php");
+  drawTable(getFavoritePetsByUserID(getSessionUserID()));
 
   echo '
   </div>

@@ -4,7 +4,7 @@ include_once(dirname(__FILE__).'/../../database/pets.php');
 function display_pet_gallery($pet_id)
 {
     echo '<section class="PetGallery-container">';
-    $photos = getPetPhotosbyPetId($pet_id);
+    $photos = getPhotosbyPetId($pet_id);
     foreach ($photos as $photo) {
         echo '<img class="PetGallery-slide" src="'.$photo.'">';
     }

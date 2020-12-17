@@ -2,7 +2,7 @@
 include_once(dirname(__FILE__)."/../../database/photos.php");
 function display_preview_gallery()
 {
-    $photos = get_preview_gallery_photos(6);
+    $photos = getPreviewPhotos(6);
     display_pet_gallery($photos, true);
 }
 
@@ -11,10 +11,10 @@ function display_pet_gallery($photos, $link_to_pet)
 {
     foreach ($photos as $photo) {
         if ($link_to_pet) {
-            $petid = get_petid_by_photoid($photo["idphoto"]);
+            $petid = getPetIDfromPhotoID($photo["idphoto"]);
         }
 
-        $photoloc = get_photo_by_id($photo["idphoto"]);
+        $photoloc = getPhotoPathByID($photo["idphoto"]);
         echo '<li>';
         echo '<div style="display: inline">';
 

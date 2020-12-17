@@ -5,7 +5,7 @@ include_once(dirname(__FILE__).'/../../database/photos.php');
 
 echo '<section class="PetInfo-container">';
 
-$photoloc = get_photo_by_id($pet["idphoto"]);
+$photoloc = getPhotoPathByID($pet["idphoto"]);
 echo ' <img src="'.$photoloc.'" alt="Adoption GO" class="PetInfo-image">';
 
 if ($pet["status"] == 1) {
@@ -34,9 +34,3 @@ echo '<span style="font-style: italic;">Para adopção    </span>';
 echo '<span style="float:right;">'.$check.'</span>';
 echo '</div>';
 echo '</section>';
-
-
-
-
-/* echo '<span style="color:pink"> &#9734; </span>';
-echo '<span style="color:pink"> &#9733; </span>'; */
