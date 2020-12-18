@@ -1,9 +1,9 @@
 <?php
 include_once(dirname(__FILE__)."/../../includes/init.php");
-
 include_once(dirname(__FILE__)."/../../database/user.php");
 
-print_r($_POST);
+include_once(dirname(__FILE__)."/../../includes/logout_only.php");
+validateAndFilter($_POST, 'username', 'name');
 
 $username = $_POST["username"];
 $password = $_POST['password'];

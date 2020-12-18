@@ -1,6 +1,8 @@
 var correctEmail = true;
 var correctUser = true;
 
+/** Event listeners **/
+
 var userBox = document.getElementById("sp_username");
 if (userBox != null)
     userBox.addEventListener("keyup", checkUsername);
@@ -12,6 +14,13 @@ if (emailBox != null)
 var pwBox = document.getElementById("sp_password");
 if (pwBox != null)
     pwBox.addEventListener("keyup", checkPassword);
+
+var loginForm = document.getElementById("login_form");
+if (loginForm != null)
+    loginForm.addEventListener("submit", validateLoginForm);
+
+
+/** AJAX **/
 
 function checkUsername() {
     let user = document.getElementById("sp_username").value;
@@ -93,9 +102,7 @@ function canUserSignup(evt) {
     }
 }
 
-var loginForm = document.getElementById("login_form");
-if (loginForm != null)
-    loginForm.addEventListener("submit", validateLoginForm);
+
 
 function validateLoginForm(evt) {
     evt.preventDefault();

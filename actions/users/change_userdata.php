@@ -1,19 +1,16 @@
 <?php
 include_once(dirname(__FILE__)."/../../includes/init.php");
-
 include_once(dirname(__FILE__)."/../../database/user.php");
 
+
+validateAndFilter($_POST, 'username', 'name');
+
 global $dbh;
-
-
 $curruser= $_SESSION['username'];
 
 $stmt = $dbh->prepare('SELECT pwhash, name FROM User WHERE username= ?');
 $stmt->execute(array($curruser));
 $userdata = $stmt->fetch();
-
-
-
 
 if (empty(($_POST["username"]))) {
     $username = $_SESSION['username'];

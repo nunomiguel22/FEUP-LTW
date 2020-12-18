@@ -1,13 +1,10 @@
 <?php
 include_once(dirname(__FILE__)."/../../includes/init.php");
-
-
-
 include_once(dirname(__FILE__)."/../../database/proposal.php");
 include_once(dirname(__FILE__)."/../../database/user.php");
 
 include_once(dirname(__FILE__)."/../../includes/login_only.php");
-
+validateAndFilter($_POST, 'id_prop', 'idowner', 'iduser');
 
 $id_prop = $_POST["id_prop"];
 $prop_info = getProposalById($id_prop);

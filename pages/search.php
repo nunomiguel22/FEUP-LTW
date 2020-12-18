@@ -4,9 +4,9 @@ include_once(dirname(__FILE__)."/../includes/session.php");
 include_once(dirname(__FILE__)."/../database/pets.php");
 
 
+validateAndFilter($_GET, "search", "min_age", "max_age", "species", "size", "status");
 
-$search = preg_replace('/[^a-zA-Z0-9\']/', ' ', $_GET["search"]);
-
+$search = $_GET["search"];
 $min_age = $_GET["min_age"];
 $max_age = $_GET["max_age"];
 $species = $_GET["species"];

@@ -1,12 +1,11 @@
 <?php
 include_once(dirname(__FILE__)."/../../includes/init.php");
-verifyCSRF();
-
-
 include_once(dirname(__FILE__)."/../../database/pets.php");
 include_once(dirname(__FILE__)."/../../database/user.php");
 
+verifyCSRF();
 include_once(dirname(__FILE__)."/../../includes/login_only.php");
+validateAndFilter($_POST, 'submit', 'idpet');
 
 $type = $_POST["submit"];
 $pet_id = $_POST["idpet"];

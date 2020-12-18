@@ -12,6 +12,7 @@ echo'
 <div id="" class="">
 
     <form class="" id="" style="" action="/pages/search.php" method="get">
+    
         <input type="text" name="search" value="'.$search.'" placeholder="Procure por nomes e localizações (ex: \'Hulk Porto\')"
             style="width:80%;">
         <br>

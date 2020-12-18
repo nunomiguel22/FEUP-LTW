@@ -1,12 +1,10 @@
 <?php
 include_once(dirname(__FILE__)."/../../includes/init.php");
-verifyCSRF();
-
 include_once(dirname(__FILE__)."/../../database/photos.php");
 
+verifyCSRF();
 include_once(dirname(__FILE__)."/../../includes/login_only.php");
-
-
+validateAndFilter($_POST, 'id_pet');
 
 $coverPhoto = $_FILES["coverPhotoInput"];
 $pet_id = $_POST["id_pet"];

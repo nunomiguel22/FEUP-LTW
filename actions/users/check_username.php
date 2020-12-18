@@ -1,6 +1,8 @@
 <?php
 include_once(dirname(__FILE__)."/../../database/user.php");
 
+validateAndFilter($_POST, 'username');
+
 $res = getUserID($_POST['username']);
 
 $result = ($res > 0);

@@ -1,9 +1,11 @@
 <?php
 include_once(dirname(__FILE__)."/../../includes/init.php");
-verifyCSRF();
-
 include_once(dirname(__FILE__)."/../../database/proposal.php");
+
+verifyCSRF();
 include_once(dirname(__FILE__)."/../../includes/login_only.php");
+validateAndFilter($_POST, 'id_pet', 'id_owner', 'proposal_message');
+
 $iduser = getSessionUserID();
 $idpet = $_POST["id_pet"];
 $idowner = $_POST['id_owner'];
