@@ -10,7 +10,7 @@
 
     <?php
     $idowner = getSessionUserID();
-    $print1 ='<form method="POST" action= "/actions/action_change_username_pw.php">
+    $print1 ='<form method="POST" action= "/actions/users/change_userdata.php">
             <div class = "Editp-gen" > <br>
             <span class ="Editptitle"> Alteração de nome e password </span> <br>
              <br>
@@ -25,7 +25,7 @@
             </form>';
 
     echo $print1;
-    $print2 = '<form action= "/actions/action_del_acc.php">
+    $print2 = '<form action= "/actions/users/delete_account.php.php">
             <div class = "Editp-gen" >
             <button type="submit">Eliminar Conta</button>
             </div>

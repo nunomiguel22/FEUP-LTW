@@ -1,7 +1,12 @@
+<?php
+include_once(dirname(__FILE__) . "/../../includes/login_only.php");
+?>
+
 <html>
+
 <body>
    <div class="NavBar">
-      <a href="/index.php"> 
+      <a href="/index.php">
          <span class="HomeTitle">Adoption</span> <span class="HomeTitle" style="Color: Red;">GO</span>
       </a>
       <div class="NavBar-right">
@@ -24,4 +29,5 @@
    </div>
    <div class="NavBar-padding"> </div>
 </body>
+
 </html>

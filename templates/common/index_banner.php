@@ -19,7 +19,7 @@
         <input type="hidden" name="max_age" value="100">
         <input type="hidden" name="species" value="qualquer">
         <input type="hidden" name="size" value="qualquer">
-
+        <input type="hidden" name="status" value="qualquer">
         <button class="search-button" type="submit"> Procure animais </button>
     </form>
 

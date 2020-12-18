@@ -1,4 +1,5 @@
 <?php
+
 include_once(dirname(__FILE__).'/../../database/pets.php');
 include_once(dirname(__FILE__).'/../../database/proposal.php');
 include_once(dirname(__FILE__).'/../../includes/session.php');

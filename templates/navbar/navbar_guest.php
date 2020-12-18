@@ -35,9 +35,11 @@
                ?>
 
             <div class="container">
-               <input type="text" placeholder="Utilizador" name="username" required autofocus>
-               <input type="password" placeholder="Palavra-passe" name="password" required>
+
+               <input type="text" placeholder="Utilizador" id="lg_username" name="username" required autofocus>
+               <input type="password" placeholder="Palavra-passe" id="lg_password" name="password" required>
                <br>
+               <div id="lg_login_r"> </div>
                <button type="submit">Entrar</button>
 
             </div>

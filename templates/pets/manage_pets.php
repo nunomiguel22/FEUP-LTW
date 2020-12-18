@@ -1,3 +1,7 @@
+<?php
+include_once(dirname(__FILE__) . "/../../includes/login_only.php");
+?>
+
 <html>
 
 <body>
@@ -10,13 +14,12 @@
 
   <br> <br> <br>
   <div class="Petstable-div">
-  <?php
+    <?php
     include_once(dirname(__FILE__)."/../common/table.php");
     include_once(dirname(__FILE__)."/../../database/pets.php");
     drawTable(getAllPetsByUserID(getSessionUserID()));
   ?>
-</div>
+  </div>
 </body>
 
 </html>
-

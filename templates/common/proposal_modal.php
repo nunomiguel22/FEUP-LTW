@@ -1,3 +1,8 @@
+<?php
+include_once(dirname(__FILE__) . "/../../includes/login_only.php");
+?>
+
+
 <div id="prop_modal" class="modal">
 
     <form class="modalLogin-content" id="proposal_form" style="min-height:330px;height:42%;"

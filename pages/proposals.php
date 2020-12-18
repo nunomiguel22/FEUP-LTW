@@ -1,4 +1,6 @@
 <?php
+include_once(dirname(__FILE__) . "/../includes/login_only.php");
+
 include_once(dirname(__FILE__)."/../includes/navbar.php");
 
 echo '

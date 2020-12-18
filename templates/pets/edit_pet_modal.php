@@ -1,4 +1,8 @@
 <?php
+
+include_once(dirname(__FILE__) . "/../../includes/login_only.php");
+
+
 $name = $pet["name"];
 $loc = $pet["location"];
 $age = $pet["age"];
