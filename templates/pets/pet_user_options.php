@@ -9,13 +9,13 @@ $owner_id = $pet["idowner"];
 $user_id = getSessionUserID();
 $pet_id = $pet["id"];
 
-
-if ($user_id != $owner_id) {
-    userOptions($pet, $user_id, $owner_id, $pet_id);
-} else {
-    ownerOptions($pet, $user_id, $owner_id, $pet_id);
+if (isLoggedIn()) {
+    if ($user_id != $owner_id) {
+        userOptions($pet, $user_id, $owner_id, $pet_id);
+    } else {
+        ownerOptions($pet, $user_id, $owner_id, $pet_id);
+    }
 }
-
 
 function userOptions($pet, $user_id, $owner_id, $pet_id)
 {
