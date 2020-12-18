@@ -89,8 +89,6 @@ function canUserSignup() {
     return canSignup;
 }
 
-
-
 var loginForm = document.getElementById("login_form");
 if (loginForm != null)
     loginForm.addEventListener("submit", validateLoginForm);
@@ -114,6 +112,4 @@ function validateLoginForm(evt) {
             error.innerHTML = '<span class="smallerror">utilizador ou password inválidos </span>';
         }
     }, params);
-
-
 }

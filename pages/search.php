@@ -5,7 +5,8 @@ include_once(dirname(__FILE__)."/../database/pets.php");
 
 
 
-$search = $_GET["search"];
+$search = preg_replace('/[^a-zA-Z0-9\']/', ' ', $_GET["search"]);
+
 $min_age = $_GET["min_age"];
 $max_age = $_GET["max_age"];
 $species = $_GET["species"];

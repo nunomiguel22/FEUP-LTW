@@ -1,7 +1,8 @@
 <?php
-include_once("../includes/init.php");
+include_once(dirname(__FILE__)."/../../includes/init.php");
 
-include_once("../database/user.php");
+include_once(dirname(__FILE__)."/../../database/user.php");
+
 global $dbh;
 
 
@@ -43,6 +44,7 @@ try {
     $stmt->bindParam(':curruser', $curruser);
 
     if ($stmt->execute()) {
+        header("location: /actions/users/logout_user.php");
         return 0;
     } else {
         return -1;
@@ -51,7 +53,3 @@ try {
     echo $e;
     return -1;
 }
-
-header("location: .../actions/action_logout.php");
-
-//echo '<a href="/actions/action_logout.php"></a>';
