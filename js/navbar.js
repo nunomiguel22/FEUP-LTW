@@ -1,4 +1,5 @@
-var canSignup = true;
+var correctEmail = true;
+var correctUser = true;
 
 var userBox = document.getElementById("sp_username");
 if (userBox != null)
@@ -33,7 +34,7 @@ function checkPassword() {
         pwBox.classList.add("invalidBorder");
     }
     else {
-        pwRes.innerHTML = '<span class="smallallowed">* nome de utilizador disponivel </span>';
+        pwRes.innerHTML = '<span class="smallallowed">* password válida </span>';
         canSignup = true;
         pwBox.classList.remove("invalidBorder");
         pwBox.classList.add("validBorder");
@@ -52,12 +53,12 @@ function ajaxUsernameHandler(usernameIsCorrect) {
 
     if (usernameIsCorrect) {
         userRes.innerHTML = '<span class="smallerror">* nome de utilizador indisponivel </span>';
-        canSignup = false;
+        correctUser = false;
         userBox.classList.remove("validBorder");
         userBox.classList.add("invalidBorder");
     } else {
         userRes.innerHTML = '<span class="smallallowed">* nome de utilizador disponivel </span>';
-        canSignup = true;
+        correctUser = true;
         userBox.classList.remove("invalidBorder");
         userBox.classList.add("validBorder");
     }
@@ -74,19 +75,22 @@ function ajaxEmailHandler(emailIsCorrect) {
 
     if (emailIsCorrect) {
         emailRes.innerHTML = '<span class="smallerror">* E-mail ja esta em uso </span>';
-        canSignup = false;
+        correctEmail = false;
         emailBox.classList.remove("validBorder");
         emailBox.classList.add("invalidBorder");
     } else {
         emailRes.innerHTML = "";
-        canSignup = true;
+        correctEmail = true;
         emailBox.classList.remove("invalidBorder");
         emailBox.classList.add("validBorder");
     }
 }
 
-function canUserSignup() {
-    return canSignup;
+function canUserSignup(evt) {
+
+    if (!correctEmail || !correctUser) {
+        evt.preventDefault();
+    }
 }
 
 var loginForm = document.getElementById("login_form");
@@ -113,3 +117,9 @@ function validateLoginForm(evt) {
         }
     }, params);
 }
+
+var signup = document.getElementById("signup_form");
+if (signup != null)
+    signup.addEventListener("submit", canUserSignup);
+
+

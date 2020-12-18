@@ -25,7 +25,7 @@
             </form>';
 
     echo $print1;
-    $print2 = '<form action= "/actions/users/delete_account.php.php">
+    $print2 = '<form action= "/actions/users/delete_account.php">
             <div class = "Editp-gen" >
             <button type="submit">Eliminar Conta</button>
             </div>

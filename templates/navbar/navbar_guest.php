@@ -48,8 +48,7 @@
 
       <div id="id02" class="modal">
 
-         <form class="modalSignup-content" action="/actions/users/signup_user.php" onsubmit="return canUserSignup();"
-            method="post">
+         <form class="modalSignup-content" id="signup_form" action="/actions/users/signup_user.php" method="post">
             <div class="imgcontainer">
                <span class="Title2">Criar nova conta</span>
                <span onclick="document.getElementById('id02').style.display='none'" class="close"
@@ -58,11 +57,6 @@
                   <span class="HomeTitle">Adoption</span> <span class="HomeTitle" style="Color: Red;">GO</span>
                </a>
             </div>
-
-            <?php
-               include_once(dirname(__FILE__).'/../../includes/csrf.php');
-               insertCSRFToken();
-               ?>
 
             <div class="container">
                <input type="text" id="sp_username" placeholder="Utilizador" name="username" required autofocus>

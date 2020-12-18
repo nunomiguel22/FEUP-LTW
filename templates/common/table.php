@@ -20,7 +20,7 @@ function drawTable($userdata)
     $petphotoid= array_column($userdata, 'idphoto');
     $petid=array_column($userdata, 'id');
     $photoids = [];
-    foreach ($petid as $id) {
+    foreach ($petphotoid as $id) {
         array_push($photoids, getPhotoPathByID($id));
     }
 
@@ -74,7 +74,7 @@ function drawUserProposalTable($userdata)
     $petphotoid= array_column($userdata, 'idphoto');
     $petid=array_column($userdata, 'id');
     $photoids = [];
-    foreach ($petid as $id) {
+    foreach ($petphotoid as $id) {
         array_push($photoids, getPhotoPathByID($id));
     }
 
