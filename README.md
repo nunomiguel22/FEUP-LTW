@@ -1,3 +1,5 @@
+# Adoption GO
+![Home Page](docs/homepage.jpg "Home Page")
 # Elements:
  - Nuno Marques (201708997) 
  - João Rodrigo (201705110)
@@ -110,4 +112,5 @@
  * Usability:
      - Error/success messages: yes
      - Forms don't lose data on error: yes
-
+    
+        ![Home Page](docs/forms.jpg "Home Page")
