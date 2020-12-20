@@ -7,7 +7,7 @@
 # Credentials (username/password (role))
  - utilizador/asdasd2 (client)
  - myuser/asdasd2 (client)
- - myuser/asdasd2 (client)
+ - myuser3/asdasd2 (client)
 
 # Libraries:
  - No external libraries were used for this project
