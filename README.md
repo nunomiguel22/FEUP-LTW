@@ -65,10 +65,10 @@
   - Passwords: PHP Hashing algorithm(BCRYPT)
   - Data Validation: regex / php / html / ajax
 
-```html
-     <input type="password" id="sp_password" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{5,10}$"
-                  placeholder="Palavra-passe (5 a 10 Caracteres)" name="password" required>
-```
+       ```html
+           <input type="password" id="sp_password" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{5,10}$"
+                        placeholder="Palavra-passe (5 a 10 Caracteres)" name="password" required>
+       ```
 
  * Technologies
      - Separated logic/database/presentation: yes
