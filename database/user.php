@@ -28,7 +28,8 @@ function createUser($username, $password, $name, $email)
     global $dbh;
     
     try {
-        $stmt = $dbh->prepare('INSERT INTO User(username, pwhash, name, email) VALUES (:username,:pwhash,:name,:email)');
+        $stmt = $dbh->prepare('INSERT INTO User(username, pwhash, name, email) 
+            VALUES (:username,:pwhash,:name,:email)');
         $stmt->bindParam(':username', $username);
         $stmt->bindParam(':pwhash', $hashed);
         $stmt->bindParam(':name', $name);
@@ -89,6 +90,81 @@ function getUserbyID($user_id)
             return -1;
         }
     } catch (PDOException $e) {
+        return -1;
+    }
+}
+
+function updateUsername($user_id, $username)
+{
+    try {
+        global $dbh;
+        $stmt = $dbh->prepare('UPDATE User SET username=:username WHERE id=:user_id');
+        $stmt->bindParam(':user_id', $user_id);
+        $stmt->bindParam(':username', $username);
+    
+        return $stmt->execute();
+    } catch (PDOException $e) {
+        echo $e;
+        return -1;
+    }
+}
+
+function updateEmail($user_id, $email)
+{
+    try {
+        global $dbh;
+        $stmt = $dbh->prepare('UPDATE User SET email=:email WHERE id=:user_id');
+        $stmt->bindParam(':user_id', $user_id);
+        $stmt->bindParam(':email', $email);
+    
+        return $stmt->execute();
+    } catch (PDOException $e) {
+        echo $e;
+        return -1;
+    }
+}
+function updatePassword($user_id, $password)
+{
+    try {
+        global $dbh;
+        $options = [
+            'cost' => 11,
+            ];
+        $hashed = password_hash($password, PASSWORD_DEFAULT, $options);
+        
+        $stmt = $dbh->prepare('UPDATE User SET pwhash=:password WHERE id=:user_id');
+        $stmt->bindParam(':user_id', $user_id);
+        $stmt->bindParam(':password', $hashed);
+    
+        return $stmt->execute();
+    } catch (PDOException $e) {
+        echo $e;
+        return -1;
+    }
+}
+function updateName($user_id, $name)
+{
+    try {
+        global $dbh;
+        $stmt = $dbh->prepare('UPDATE User SET name=:name WHERE id=:user_id');
+        $stmt->bindParam(':user_id', $user_id);
+        $stmt->bindParam(':name', $name);
+    
+        return $stmt->execute();
+    } catch (PDOException $e) {
+        echo $e;
+        return -1;
+    }
+}
+
+function deleteUser($user_id)
+{
+    try {
+        global $dbh;
+        $stmt = $dbh->prepare('DELETE FROM User WHERE id= ?');
+        return $stmt->execute(array($user_id));
+    } catch (PDOException $e) {
+        echo $e;
         return -1;
     }
 }

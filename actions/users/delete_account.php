@@ -1,6 +1,7 @@
 <?php
 include_once(dirname(__FILE__)."/../../includes/init.php");
 
+verifyCSRF();
 
 global $dbh;
 

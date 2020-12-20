@@ -32,7 +32,6 @@ function replyHandler() {
     var textInput = document.getElementById("comment_message");
     textInput.focus();
     var id = this.getAttribute("comment_id");
-    console.log(this.parentElement);
     this.parentElement.classList.remove("comment-div");
     this.parentElement.classList.add("comment-div-selected");
     var parent = document.getElementById("comment_parent");
@@ -68,7 +67,7 @@ function favoriteHandler() {
         let params = { id_pet: petID };
         favoriteStar.style = "color:red;";
         favoriteStar.innerHTML = "&#9733;";
-        ajaxRequest('/actions/pets/add_favorite.php', "POST", null, params);
+        ajaxRequest('/actions/pets/add_favorite.php', "POST", function (result) { console.log(result); }, params);
 
     }
     isFav ^= 1;

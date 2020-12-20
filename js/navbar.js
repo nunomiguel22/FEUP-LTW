@@ -19,7 +19,6 @@ var loginForm = document.getElementById("login_form");
 if (loginForm != null)
     loginForm.addEventListener("submit", validateLoginForm);
 
-
 /** AJAX **/
 
 function checkUsername() {

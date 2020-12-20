@@ -1,8 +1,8 @@
 <?php
 include_once(dirname(__FILE__) . "/../includes/login_only.php");
 
-include_once(dirname(__FILE__)."/../includes/navbar.php");
 include_once(dirname(__FILE__)."/../includes/session.php");
+include_once(dirname(__FILE__)."/../includes/navbar.php");
 include_once(dirname(__FILE__)."/../database/pets.php");
 
 echo '

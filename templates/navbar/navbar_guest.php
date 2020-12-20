@@ -30,9 +30,9 @@
             </div>
 
             <?php
-               include_once(dirname(__FILE__).'/../../includes/csrf.php');
-               insertCSRFToken();
-               ?>
+            include_once(dirname(__FILE__).'/../../includes/csrf.php');
+            insertCSRFToken();
+            ?>
 
             <div class="container">
 

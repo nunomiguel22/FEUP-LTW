@@ -1,4 +1,5 @@
 <?php
+include_once(dirname(__FILE__)."/../includes/navbar.php");
 include_once(dirname(__FILE__).'/../database/pets.php');
 include_once(dirname(__FILE__)."/../templates/pets/pet_gallery.php");
 include_once(dirname(__FILE__)."/../templates/pets/pet_comments.php");
@@ -16,8 +17,6 @@ if ($pet == -1) {
     http_response_code(404);
     die();
 }
-
-include_once(dirname(__FILE__)."/../includes/navbar.php");
 
 echo '<div class="widthControl">';
 include_once(dirname(__FILE__)."/../templates/pets/pet_info.php");

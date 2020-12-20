@@ -1,14 +1,18 @@
 <html>
 
-<head>
-   <title>Adoption GO</title>
-   <link rel="stylesheet" type="text/css" href="/css/style.css">
-   <meta charset="utf-8">
-   <meta name="viewport" cotent="width=device-width">
-   <link rel="icon" href="/images/favicon.jpg">
-   <script type="text/javascript" src="../js/ajax.js"></script>
-   
+<?php
+include_once(dirname(__FILE__).'/../includes/csrf.php');
+insertHeadCSRFToken();
+?>
+
+<title>Adoption GO</title>
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+<meta charset="utf-8">
+<meta name="viewport" cotent="width=device-width">
+<link rel="icon" href="/images/favicon.jpg">
+<script type="text/javascript" src="../js/ajax.js"></script>
 </head>
+
 </html>
 
 

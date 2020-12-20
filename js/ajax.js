@@ -8,7 +8,7 @@ function encodeForAjax(data) {
 function ajaxRequest(page, type = "GET", func, params = {}) {
 
     let request = new XMLHttpRequest();
-    //data.csrf = document.body.getAttribute("data-csrf");
+    params.csrf = document.head.getAttribute("csrf");
     let paramUrl = encodeForAjax(params);
     type = type.toLowerCase();
 

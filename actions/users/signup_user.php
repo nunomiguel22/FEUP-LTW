@@ -2,6 +2,7 @@
 include_once(dirname(__FILE__)."/../../includes/init.php");
 include_once(dirname(__FILE__)."/../../database/user.php");
 
+verifyCSRF();
 include_once(dirname(__FILE__)."/../../includes/logout_only.php");
 validateAndFilter($_POST, 'username', 'name');
 

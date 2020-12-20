@@ -1,4 +1,5 @@
 <?php
+include_once(__DIR__.'/session.php');
 
 function generate_random_token()
 {
@@ -16,4 +17,9 @@ function verifyCSRF()
 function insertCSRFToken()
 {
     echo '<input type="hidden" name="csrf" value="' . $_SESSION["csrf"] . '">';
+}
+
+function insertHeadCSRFToken()
+{
+    echo '<head csrf="' . $_SESSION["csrf"] . '">';
 }

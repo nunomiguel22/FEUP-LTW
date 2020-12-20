@@ -2,7 +2,8 @@
 include_once(dirname(__FILE__)."/../../includes/init.php");
 include_once(dirname(__FILE__)."/../../database/user.php");
 
-validateAndFilter($_POST, 'username');
+verifyCSRF();
+validateAndFilter($_POST, 'username', 'password');
 
 $_SESSION['logged_in'] = false;
 $username = $_POST["username"];

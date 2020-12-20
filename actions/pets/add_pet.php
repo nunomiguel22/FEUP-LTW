@@ -14,12 +14,8 @@ $location = $_POST['location'];
 $age = $_POST["age"];
 $species = $_POST['species'];
 $size = $_POST["size"];
+$status = (isset($_POST['status'])) ? 1 : 0;
 
-if (isset($_POST['status'])) {
-    $status = 1;
-} else {
-    $status = 0;
-}
 
 if (addPet($coverPhoto, $idowner, $name, $location, $age, $species, $size, $status) == -1) {
     echo('<script>alert("Failed to add pet")</script>

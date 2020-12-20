@@ -1,6 +1,7 @@
 <?php
 include_once(dirname(__FILE__)."/../../database/user.php");
 
+verifyCSRF();
 validateAndFilter($_POST, 'username');
 
 $res = getUserID($_POST['username']);
