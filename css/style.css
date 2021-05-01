@@ -1,0 +1,708 @@
+
+
+ /*** General ***/
+
+ body {
+  margin: 0;
+  overflow-x: hidden;
+  max-width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color:#ececec;
+  text-align:center;
+}
+
+textarea {
+  resize: none;
+}
+
+span{
+  color:rgb(80, 80, 80);
+  font-size: 14;
+  font-family: "Consolas";
+  font-weight: bold;
+}
+
+td{
+  color:rgb(80, 80, 80);
+  font-size: 14;
+  font-family: "Consolas";
+  font-weight: bold;
+}
+
+
+.widthControl{
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+li {
+  display: inline;
+}
+
+/* input fields */
+input[type=text],
+input[type=password],
+input[type=number],
+input[type=email] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+::placeholder {
+  font-family: Noto Sans,sans-serif;
+  font-weight: bold;
+  font-size: 11;
+}
+
+/* button style */
+button {
+  font-family: Noto Sans,sans-serif;
+  font-weight: bold;
+  padding: 10px 20px;
+  margin: 8px 2px;
+  border: 1px solid #548dc5;
+  box-shadow: none;
+  cursor: pointer;
+  width: 98.5%;
+
+}
+
+#navbar-login-button{
+  background-color: #548dc5;
+  color: rgb(255, 255, 255);
+}
+
+#navbar-signup-button{
+  background-color: #ffffff;
+  color: #353535;
+}
+
+button:hover {
+  opacity: 0.8;
+ }
+
+button:focus{
+  outline: none;
+}
+
+ footer {
+  padding: 9px 0;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height:15px;
+  background: white;
+  text-align: center;
+}
+
+a {
+  color: inherit; /* blue colors for links too */
+  text-decoration: inherit; /* no underline */
+}
+
+ /*** General ***/
+
+
+/* cancel button */
+.cancelbtn {
+width: auto;
+padding: 10px 20px;
+background-color: #ff1100;
+}
+/* Center the image and position the close button */
+.imgcontainer {
+text-align: left;
+margin: 24px 0 12px 0;
+padding: 0px 20px;
+position: relative;
+}
+
+.container {
+  width: 85%;
+  margin: auto;
+  overflow: hidden;
+}
+span.psw {
+float: right;
+padding-top: 16px;
+}
+
+/* background */
+.modal{
+display: none;
+position: fixed;
+z-index: 1;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+overflow: auto;
+background-color: rgba(0, 0, 0, 0.4);
+padding-top: 60px;
+}
+/* Content/Box */
+.modalLogin-content {
+background-color: #fefefe;
+border-radius: 2px;
+margin: 5% auto 15% auto;
+border: 1px solid#3d7bff;
+width: 300px;
+height: 300px;
+}
+  /* Content/Box */
+.modalSignup-content {
+  background-color: #fefefe;
+  border-radius: 2px;
+  margin: 5% auto 15% auto;
+  border: 1px solid #3d7bff;
+  width: 300px;
+  height:460px;
+}
+
+  /* Content/Box */
+.modalEditPet-content {
+  display:flex;
+  background-color: #fefefe;
+  border-radius: 10px;
+  margin: 5% auto 15% auto;
+  border: 1px solid #3d7bff;
+  width: 500px;
+  height:460;
+}
+  
+
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+ }
+
+.close:hover,
+  .close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+/*** NavBar ***/
+  
+.NavBar {
+  background-color: rgb(255, 255, 255);
+  overflow: hidden;
+  position: fixed; 
+  top: 0; 
+  width: 100%;
+  z-index: 1;
+}
+
+.NavBar-right {
+  float: right;
+  padding-right:20px;
+}
+
+.NavBar a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 5px 16px;
+  text-decoration: none;
+}
+
+.NavBar .highlight {
+  color: rgb(226, 55, 55); 
+  font-weight: bold;
+  font-size: 20;
+}
+
+.NavBar-padding{
+  padding: 30px;
+}
+
+.dropdown {
+    float: left;
+    overflow: hidden;
+    padding: 2px 15px;
+}
+  
+.dropdown .dropbtn {
+  background-color: #548dc5;
+  color: rgb(255, 255, 255);
+  font-family: Noto Sans,sans-serif;
+  font-weight: bold;
+  padding: 10px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+
+.dropdown-content {
+  display: none;
+  position: fixed;
+  background-color: #548dc5f6;
+  min-width: 87px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  float: none;
+  color:rgb(255, 255, 255);
+  font-size: 13;
+  font-family: Noto Sans,sans-serif;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  opacity: 0.6;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/*** NavBar ***/
+
+
+/** Text **/
+
+.smallerror{
+  color:red;
+  font-size: 11;
+}
+
+.smallallowed{
+  color: green;
+  font-size: 11;
+}
+
+.smallinfo{
+  color: rgb(0, 0, 0);
+  font-size: 11;
+}
+
+.invalidBorder {
+  border: 1px solid red;
+}
+
+.validBorder {
+  border: 1px solid green;
+}
+
+
+
+.Title1{
+  color:rgb(80, 80, 80);
+  font-size: 25;
+  font-family: "Garamond";
+  text-align: center;
+  font-weight: bold;
+}
+
+.Title2{
+  color:rgb(80, 80, 80);
+  font-size: 25;
+  font-family: "Garamond";
+  text-align: left;
+  font-weight: bold;
+}
+
+
+/** Text **/
+
+/** Gallery Banner **/
+
+.Banner {
+  position: relative;
+}
+
+.galleryBanner{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  height: auto;
+  min-height: 130px;
+  border: 1px solid black;
+  box-shadow: 0 0 2px 1px rgba(107, 107, 107, 0.473);
+}
+
+.BannerTitle {
+  position: absolute;
+  top: 50%;
+  left: 35%;
+  color:rgb(255, 255, 255);
+  font-family: "Garamond";
+  text-align: center;
+  font-weight: bold;
+  font-size: 4vw;
+  font-size: 30;
+  text-shadow: 1px 1px 4px #585858;
+}
+
+/** Gallery Banner **/
+
+/** Photo dialog **/
+.CoverPhotoDialog{
+  float:left;
+}
+
+.image-preview{
+  min-width: 200px;
+  min-height: 200px;
+  max-width: 320px;
+  max-height: 320px;
+  border: 2px solid lightgray;
+  margin-top: 15px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: rgb(155, 155, 155);
+}
+
+.image-preview__image{
+  display:none;
+  width: 100%;
+}
+
+
+.image-preview__button{
+  content: 'Select some files';
+  display: inline-block;
+  background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3);
+  border: 1px solid #999;
+  border-radius: 3px;
+  padding: 5px 8px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  text-shadow: 1px 1px #fff;
+  font-size: 10pt;
+  width: 100px;
+}
+
+
+/** Photo dialog **/
+
+/** Home navbar title **/
+.HomeTitle{
+  position: relative;
+  color:rgb(80, 80, 80);
+  font-size: 25;
+  /* font-family: "Garamond"; */
+  text-align: center;
+  font-weight: bold;
+  top: 10px;
+}
+
+/** Home navbar title **/
+
+/** Pet **/
+.NewPet-container{
+width: 30%;
+margin:auto;
+padding: 10px;
+}
+
+.custom-select {
+  position: relative;
+  font-family: Arial;
+  width: 100%;
+  height: 25px;
+}
+
+.NewPet-Info{
+  font-family: Noto Sans,sans-serif;
+  font-weight: bold;
+  font-size: 13;
+  color:rgb(78, 78, 78);
+}
+
+.newPetBanner{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  height: 200px;
+  border: 1px solid black;
+  box-shadow: 0 0 2px 1px rgba(107, 107, 107, 0.473);
+}
+
+.PetInfo-image{
+  padding: 10px;
+  float: left;
+  width:30%;
+  min-width:250px;
+  max-height: 300px;
+}
+
+.PetInfo-container {
+  background-image: linear-gradient(to right, rgba(158, 158, 170, 0.753) , rgb(230, 224, 224));
+  width: 50%;
+  min-width:600px;
+  margin: auto;
+  overflow: hidden;
+  display: flex;
+  border: none;
+  box-shadow: 0px 0px 0.5px 0.5px #666666;
+}
+
+.PetInfo-Name {
+  width:90%; 
+  float:left; 
+  color:rgb(80, 80, 80);
+  font-size: 32;
+  font-family: "Garamond";
+  text-align: left;
+  font-weight: bold;
+  border-bottom: 1px solid rgba(71, 71, 71, 0.623);
+}
+
+.PetInfo-text {
+  width:50%; 
+  float:left; 
+  color:rgb(53, 53, 53);
+  font-size: 20;
+  font-family: "Consolas";
+  text-align: left;
+  padding: 40px;
+}
+
+.PetOptions{
+  width:50%;
+  margin:auto;
+}
+
+.PetOptions-button{
+  width:30%;
+  background-color:rgba(0, 0, 0, 0);
+  border-radius: 10%;
+  box-shadow: 0px 0px 0.5px 0.5px #666666;
+  margin: 10px;
+  font-size: 14;
+}
+
+.PetOptions-button-disabled{
+  width:30%;
+  background-color:rgba(0, 0, 0, 0);
+  color:rgb(156, 156, 156);
+  border-radius: 10%;
+  box-shadow: 0px 0px 0.5px 0.5px #666666;
+  margin: 10px;
+  font-size: 14;
+  cursor:default;
+  pointer-events: none;
+}
+
+
+
+/** Pet **/
+
+/** Gallery **/
+
+.previewGallery-container{
+  width: 60%;
+  margin:auto;
+  padding: 10px;
+  }
+
+.previewGallery-image{
+  width:100%;
+  max-width:300px;
+  height: 200px;
+  margin: 3px;
+  box-shadow: 0 0 1px 1px rgba(107, 107, 107, 0.473);
+  transition: 1s all ease; 
+}
+
+.previewGallery-image:hover{
+  transform: scale(1.05);
+}
+
+.PetGallery-slide{
+  display: none;
+  max-width: 500px;
+  margin: auto;
+}
+
+.PetGallery-button-left{
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  top:30%;
+}
+
+.PetGallery-button-right{
+  position: absolute;
+  right: 0;
+  top:30%;
+  height: 50px;
+  width: 50px;
+}
+
+.PetGallery-container{
+  display: flex;
+  position: relative;
+  min-width:600px;
+  width: 50%;
+  background-image: linear-gradient(to right, rgba(235, 130, 81, 0.753) , rgb(230, 224, 224));
+  margin: auto;
+  box-shadow: 0 0 1px 1px rgba(107, 107, 107, 0.473);
+}
+
+  /** Gallery **/
+
+
+/** User Page **/
+.userpageBanner{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  height: 200px;
+  border: 1px solid rgb(0, 0, 0);
+  box-shadow: 0 0 2px 1px rgba(107, 107, 107, 0.473);
+  }
+
+
+ .Editp-gen{
+  width: 25%;
+  margin: auto;
+  text-align: center;
+  padding: 10px;
+  
+}
+
+.Editp {
+  font-family: Noto Sans,sans-serif;
+  font-weight: bold;
+  font-size: 13;
+  color:rgb(78, 78, 78);
+}
+
+.Editpinfo {
+  font-size: 10;
+  
+}
+.Petstable-div{
+  width:70%;
+  margin:auto;
+  justify-content: center;
+  display:flex;
+  background-color:rgb(230, 230, 230);
+}
+
+.Petstable{ 
+  width:80%;
+  
+  text-align:center;
+}
+
+.Petstable th, td {
+  border-bottom: 1px solid #ddd;
+  text-align:center;
+}
+
+.pettablephoto
+{
+  width: 80px;
+  height: 50px;
+  box-shadow: 0 0 2px 2px rgba(215, 226, 54, 0.473);
+}
+
+.Petstable tr:hover{
+  background-color: rgb(163, 169, 201);
+  cursor:pointer;
+}
+/** User Page **/
+
+
+/** Comments **/
+.comment-div{
+  text-align: left;
+  margin-bottom: 5px;
+  border-bottom: 1px dashed rgba(71, 71, 71, 0.623);
+}
+
+.comment-div-selected{
+  text-align: left;
+  margin-bottom: 5px;
+  border-bottom: 1px dashed rgba(71, 71, 71, 0.623);
+  background-color: rgb(196, 226, 255);
+}
+
+.comment-text {
+  color:rgb(0, 0, 0);
+  font-size: 14;
+  font-family: "Consolas";
+  padding-left:5px;
+}
+
+.comment-info {
+  padding-left:20px;
+  color:rgb(119, 119, 119);
+  font-size: 11;
+  font-family: "Consolas";
+}
+.comment-reply {
+  cursor:pointer;
+}
+
+.comments-container{
+  background-color: rgb(247, 247, 247);
+  box-shadow: 0 0 1px 1px rgba(41, 41, 41, 0.473);
+  margin-top: 20px;
+  margin-left:auto;
+  margin-right:auto;
+  min-width:600px;
+  width: 50%;
+}
+
+.reply-container{
+  box-shadow:none;
+  margin-top: 20px;
+  margin-left:auto;
+  margin-right:auto;
+  min-width:600px;
+  width: 50%;
+  text-align:left;
+}
+
+/** Comments **/
+
+.search-button{
+  font-weight: bold;
+  font-size: 16;
+  font-family: BentonSans, sans-serif;
+  width: 350px;
+  height: 40px;
+  margin: 0 auto;
+  padding: 0;
+
+
+}
+
+.search-button:hover{
+
+  box-shadow: 0 0 2px 2px rgba(41, 41, 41, 0.473);
+}
+
+
+
+/* #929a9e; */

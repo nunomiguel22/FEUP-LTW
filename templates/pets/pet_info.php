@@ -1,0 +1,36 @@
+<?php
+include_once(dirname(__FILE__).'/../../database/photos.php');
+
+
+
+echo '<section class="PetInfo-container">';
+
+$photoloc = getPhotoPathByID($pet["idphoto"]);
+echo ' <img src="'.$photoloc.'" alt="Adoption GO" class="PetInfo-image">';
+
+if ($pet["status"] == 1) {
+    $check = "&#10003;";
+} else {
+    $check = "&#10006;";
+}
+
+
+echo '<div class="PetInfo-text">';
+echo '<span class="PetInfo-Name">'.$pet["name"].'</span>';
+echo '<br><br>';
+echo '<span style="font-style: italic;">Idade    </span>';
+echo '<span style="float:right;">'.$pet["age"].'</span>';
+echo '<br>';
+echo '<span style="font-style: italic;">Local    </span>';
+echo '<span style="float:right;">'.$pet["location"].'</span>';
+echo '<br>';
+echo '<span style="font-style: italic;">Espécie    </span>';
+echo '<span style="float:right;">'.$pet["species"].'</span>';
+echo '<br>';
+echo '<span style="font-style: italic;">Tamanho    </span>';
+echo '<span style="float:right;">'.$pet["size"].'</span>';
+echo '<br>';
+echo '<span style="font-style: italic;">Para adopção    </span>';
+echo '<span style="float:right;">'.$check.'</span>';
+echo '</div>';
+echo '</section>';
